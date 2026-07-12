@@ -12,7 +12,7 @@
     "skipLibCheck": true,
 
     "rootDir": "./src",
-    "outDir": "./dist/js",
+    "outDir": "./dist",
 
     "sourceMap": true,
     "noEmitOnError": true
