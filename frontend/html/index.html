@@ -11,8 +11,18 @@
   <body>
     <main>
         <h1>Welcome to My Website</h1>
-            <h2>current path requested is {{.title}}</h2>
+            <h2>current path requested is {{ .Path }}</h2>
+
     </main>
-    <script src="/dist/index.js"></script>
+    <h1> Links for important things </h1>
+    <form id="linkform">
+            <input type="text" id="inputf">
+
+            </input>
+
+            <input type="submit" id="submit-button">
+            </input>
+    </form>
+    <script src="/dist/main.js"></script>
   </body>
 </html>

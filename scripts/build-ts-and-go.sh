@@ -3,12 +3,12 @@ set -Eeuo pipefail
 IFS=$'\n\t'
 
 build_ts() {
- cd ~/DEV/homelab-dashboard/frontend/
- npm run  build
+
+ npm run --prefix frontend build
 }
 
 build_go() {
-    go run ~/DEV/homelab-dashboard/main.go
+    go build -o ./tmp/server .
 }
 main() {
 
