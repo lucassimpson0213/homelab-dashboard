@@ -1,7 +1,9 @@
 const form = document.querySelector('#linkform');
 const submitbutton = document.querySelector('#submitbutton');
 const input = document.querySelector('#inputf');
+const body = document.querySelector('body');
 const list = document.createElement("ul");
+body?.appendChild(list) ?? console.error("unable to append unordered list");
 // Main wrapper function
 export async function tryCatch(promise) {
     try {
@@ -25,12 +27,19 @@ async function handleSubmit(event) {
     }
     if (URL.canParse(data)) {
         let fd = new FormData(form);
-        let fetched = fetch('http://fedoramac.lan:8080/getlinks');
+        let fetched = fetch('http://fedoramac.lan:8080/getlinks', {
+            method: "POST",
+            body: fd
+        });
         let result = await tryCatch(fetched);
         if (result.error !== null) {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements";
         }
+        let linkList = document.createElement("li");
+        linkList.innerText = "default text 404";
+        const body = document.querySelector("body");
+        body?.appendChild(linkList) ?? console.error("unable to append child to linkList");
         // let value = result.error ? result.error : JSON.parse(result.data.json)
     }
 }
