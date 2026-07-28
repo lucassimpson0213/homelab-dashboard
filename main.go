@@ -2,7 +2,7 @@ package main
 
 import (
 	"database/sql"
-	"github.com/lib/pq"
+	// "github.com/lib/pq"
 	"html/template"
 	"log"
 	"net/http"
@@ -29,9 +29,16 @@ func main() {
 	)
 
 	http.HandleFunc("/", staticHandler)
-	http.HandleFunc("/getlink", getLinksHandler)
+	http.HandleFunc("/getlinks", getLinksHandler)
 	log.Fatal(http.ListenAndServe("0.0.0.0:8080", nil))
 }
+
+type Resource struct {
+	url           string
+	resource_id   string
+	resource_name string
+}
+
 func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 	pg := PgConnection{}
 
@@ -41,7 +48,34 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 		log.Fatal("pg connection failed")
 	}
 
-	db.Ping()
+	rows, error := db.Query("SELECT resource_id, resource_name, url FROM public.resource")
+
+	if error != nil {
+		log.Fatal("problem with db query")
+	}
+
+	defer rows.Close()
+
+	//I guess this inits the string array compared to using a compile time static value
+	//slices are like references where regular arrays are copied by value
+	resources := make([]Resource, 10)
+	// https://pkg.go.dev/database/sql#DB.Query
+	for rows.Next() {
+		var resource_id, resource_name, url string
+		if err := rows.Scan(&resource_id, &resource_name,&url); err != nil {
+			log.Fatal(err)
+		}
+		resource := Resource{resource_id, resource_name, url}
+
+
+		resources = append(resources, resource)
+
+	}
+
+	if err := rows.Err(); err != nil {
+		log.Fatal(err)
+	}
+
 }
 func linkHandler(rw http.ResponseWriter, r *http.Request) {
 
