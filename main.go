@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	// "github.com/lib/pq"
 	"html/template"
 	"log"
@@ -34,9 +35,9 @@ func main() {
 }
 
 type Resource struct {
-	url           string
-	resource_id   string
-	resource_name string
+	Url           string `json:"url"`
+	ResourceId   string  `json:"resourceId"`
+	ResourceName string  `json:"resourceName"`
 }
 
 func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
@@ -63,18 +64,24 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 	for rows.Next() {
 		var resource_id, resource_name, url string
 		if err := rows.Scan(&resource_id, &resource_name,&url); err != nil {
+			log.Print("There has been an error with the rows scanner for the database; in get links handler")
 			log.Fatal(err)
 		}
-		resource := Resource{resource_id, resource_name, url}
-
-
-		resources = append(resources, resource)
+		resource := Resource{ResourceId: resource_id, ResourceName: resource_name, Url: url}
+        
+        resources = append(resources, resource)
 
 	}
-
 	if err := rows.Err(); err != nil {
 		log.Fatal(err)
 	}
+
+	b, error := json.Marshal(resources)
+	if error != nil {
+		log.Fatal(error)
+	}
+
+    rw.Write(b)
 
 }
 func linkHandler(rw http.ResponseWriter, r *http.Request) {
