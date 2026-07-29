@@ -1,14 +1,11 @@
 
 
-const form = document.querySelector<HTMLFormElement>('#linkform')
-const submitbutton = document.querySelector('#submitbutton')
-const input = document.querySelector<HTMLInputElement>('#inputf')
-const body = document.querySelector('body');
-const list = document.createElement("ul");
 
-body?.appendChild(list) ?? console.error("unable to append unordered list");
 
-// document.onload
+
+// // document.addEventListener("DOMContentLoaded", () => {
+// //
+// });
 
 
 
@@ -26,7 +23,7 @@ type Failure<E> = {
 type Result<T, E = Error> = Success<T> | Failure<E>;
 
 // Main wrapper function
-export async function tryCatch<T, E = Error>(
+async function tryCatch<T, E = Error>(
     promise: Promise<T>,
 ): Promise<Result<T, E>> {
     try {
@@ -38,10 +35,10 @@ export async function tryCatch<T, E = Error>(
 }
 
 
-async function handleSubmit(event: SubmitEvent): Promise<void> {
+async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HTMLInputElement | null): Promise<void> {
     event.preventDefault();
     const data = input?.value ?? "none"
-
+    console.log("This function gets called");
     if (data === "none") {
         console.error("There was no data submitted for the form")
         return;
@@ -55,7 +52,7 @@ async function handleSubmit(event: SubmitEvent): Promise<void> {
     if (URL.canParse(data)) {
         let fd = new FormData(form);
 
-        let fetched = fetch('http://fedoramac.lan:8080/getlinks', {
+        let fetched = fetch('http://127.0.0.1:7024/getlinks:', {
             method: "POST",
             body: fd
         });
@@ -65,8 +62,9 @@ async function handleSubmit(event: SubmitEvent): Promise<void> {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements"
         }
-
-        let linkList = document.createElement("li");
+        console.log(result.data);
+        let linkList = document.createElement("ul");
+        let elements = []
         linkList.innerText = "default text 404"
         const body = document.querySelector("body");
 
@@ -76,5 +74,16 @@ async function handleSubmit(event: SubmitEvent): Promise<void> {
         // let value = result.error ? result.error : JSON.parse(result.data.json)
     }
 }
-form?.addEventListener("submit", handleSubmit);
-console.log(form)
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector<HTMLFormElement>('#linkform')
+    const submitbutton = document.querySelector('#submitbutton')
+    const input = document.querySelector<HTMLInputElement>('#inputf')
+    const body = document.querySelector('body');
+    const list = document.createElement("ul");
+    form?.addEventListener("submit", async (event:SubmitEvent) => {
+        await handleSubmit(event, form, input)
+    });
+    body?.appendChild(list) ?? console.error("unable to append unordered list");
+    console.log(form)
+});
+

@@ -31,7 +31,7 @@ func main() {
 
 	http.HandleFunc("/", staticHandler)
 	http.HandleFunc("/getlinks", getLinksHandler)
-	log.Fatal(http.ListenAndServe("0.0.0.0:8080", nil))
+	log.Fatal(http.ListenAndServe("localhost:7024", nil))
 }
 
 type Resource struct {
