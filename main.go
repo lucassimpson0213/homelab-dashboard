@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
-	// "github.com/lib/pq"
+	_ "github.com/lib/pq"
 	"html/template"
 	"log"
 	"net/http"
@@ -15,6 +15,13 @@ func check(e error) {
 	}
 }
 
+func cors(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+	w.Header().Set("x-custom-header", "Hello")
+}
+
 var templates = template.Must(template.ParseFiles("./frontend/dist/index.html"))
 
 type PageData struct {
@@ -22,26 +29,34 @@ type PageData struct {
 }
 
 func main() {
-
 	static := http.FileServer(http.Dir("./frontend/dist"))
-
+	http.HandleFunc("/api/getlinks", getLinksHandler)
+	//serves static routing
+	http.HandleFunc("/", staticHandler)
+    
+	// serves all static files like html, css and js
 	http.Handle("/dist/",
 		http.StripPrefix("/dist/", static),
 	)
 
-	http.HandleFunc("/", staticHandler)
-	http.HandleFunc("/getlinks", getLinksHandler)
-	log.Fatal(http.ListenAndServe("localhost:7024", nil))
+	log.Fatal(http.ListenAndServe("localhost:8080", nil))
 }
 
 type Resource struct {
-	Url           string `json:"url"`
-	ResourceId   string  `json:"resourceId"`
-	ResourceName string  `json:"resourceName"`
+	Url          string `json:"url"`
+	ResourceId   string `json:"resourceId"`
+	ResourceName string `json:"resourceName"`
 }
 
 func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
+    cors(rw)	
+
+	if r.Method == http.MethodOptions {
+		rw.WriteHeader(http.StatusOK)
+		return  
+	}
 	pg := PgConnection{}
+
 
 	db, err := pg.getConnection()
 
@@ -63,13 +78,13 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 	// https://pkg.go.dev/database/sql#DB.Query
 	for rows.Next() {
 		var resource_id, resource_name, url string
-		if err := rows.Scan(&resource_id, &resource_name,&url); err != nil {
+		if err := rows.Scan(&resource_id, &resource_name, &url); err != nil {
 			log.Print("There has been an error with the rows scanner for the database; in get links handler")
 			log.Fatal(err)
 		}
 		resource := Resource{ResourceId: resource_id, ResourceName: resource_name, Url: url}
-        
-        resources = append(resources, resource)
+
+		resources = append(resources, resource)
 
 	}
 	if err := rows.Err(); err != nil {
@@ -81,13 +96,22 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 		log.Fatal(error)
 	}
 
-    rw.Write(b)
+	rw.Write(b)
+	rw.WriteHeader(http.StatusOK)
+
+
 
 }
 func linkHandler(rw http.ResponseWriter, r *http.Request) {
 
 }
 func staticHandler(rw http.ResponseWriter, r *http.Request) {
+    cors(rw)
+
+	if r.Method == http.MethodOptions {
+		rw.WriteHeader(http.StatusOK)
+		return  
+	}
 
 	dat := PageData{
 		Path: r.URL.Path,

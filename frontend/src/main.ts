@@ -52,7 +52,7 @@ async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HT
     if (URL.canParse(data)) {
         let fd = new FormData(form);
 
-        let fetched = fetch('http://127.0.0.1:7024/getlinks:', {
+        let fetched = fetch('http://127.0.0.1:8080/api/getlinks:', {
             method: "POST",
             body: fd
         });
@@ -62,7 +62,8 @@ async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HT
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements"
         }
-        console.log(result.data);
+        
+        console.log(await result.data?.text());
         let linkList = document.createElement("ul");
         let elements = []
         linkList.innerText = "default text 404"
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const input = document.querySelector<HTMLInputElement>('#inputf')
     const body = document.querySelector('body');
     const list = document.createElement("ul");
-    form?.addEventListener("submit", async (event:SubmitEvent) => {
+    form?.addEventListener("submit", async (event: SubmitEvent) => {
         await handleSubmit(event, form, input)
     });
     body?.appendChild(list) ?? console.error("unable to append unordered list");

@@ -26,7 +26,7 @@ async function handleSubmit(event, form, input) {
     }
     if (URL.canParse(data)) {
         let fd = new FormData(form);
-        let fetched = fetch('http://127.0.0.1:7024/getlinks:', {
+        let fetched = fetch('http://127.0.0.1:8080/api/getlinks:', {
             method: "POST",
             body: fd
         });
@@ -35,7 +35,7 @@ async function handleSubmit(event, form, input) {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements";
         }
-        console.log(result.data);
+        console.log(await result.data?.text());
         let linkList = document.createElement("ul");
         let elements = [];
         linkList.innerText = "default text 404";
