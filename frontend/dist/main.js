@@ -26,7 +26,7 @@ async function handleSubmit(event, form, input) {
     }
     if (URL.canParse(data)) {
         let fd = new FormData(form);
-        let fetched = fetch('http://127.0.0.1:8080/api/getlinks:', {
+        let fetched = fetch('http://localhost:8080/api/getlinks', {
             method: "POST",
             body: fd
         });
