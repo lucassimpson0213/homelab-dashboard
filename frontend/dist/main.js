@@ -1,7 +1,4 @@
 "use strict";
-// // document.addEventListener("DOMContentLoaded", () => {
-// //
-// });
 // Main wrapper function
 async function tryCatch(promise) {
     try {
@@ -26,6 +23,10 @@ async function handleSubmit(event, form, input) {
     }
     if (URL.canParse(data)) {
         let fd = new FormData(form);
+        let posted = fetch('http://localhost:8080/api/getlinks', {
+            method: "POST",
+            body: fd
+        });
         let fetched = fetch('http://localhost:8080/api/getlinks', {
             method: "POST",
             body: fd
@@ -35,10 +36,27 @@ async function handleSubmit(event, form, input) {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements";
         }
-        console.log(await result.data?.text());
+        let currentList = document.querySelector("ul");
+        if (currentList == null) {
+            console.error("There is no list to remove");
+        }
+        else {
+            currentList.remove();
+        }
         let linkList = document.createElement("ul");
-        let elements = [];
-        linkList.innerText = "default text 404";
+        const linkJson = await result.data?.json();
+        if (!result.data) {
+            linkList.innerText = "default text 404";
+        }
+        const MINIMUM_URL_LENGTH = 1;
+        for (const element of linkJson) {
+            console.log(element);
+            if (element.url.length > MINIMUM_URL_LENGTH) {
+                const linkElement = document.createElement("li");
+                linkElement.innerText = element.url;
+                linkList.appendChild(linkElement);
+            }
+        }
         const body = document.querySelector("body");
         body?.appendChild(linkList) ?? console.error("unable to append child to linkList");
         // let value = result.error ? result.error : JSON.parse(result.data.json)
