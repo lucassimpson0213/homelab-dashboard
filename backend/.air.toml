@@ -2,6 +2,7 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
+stop_on_error=true
 cmd = "./scripts/build-ts-and-go.sh"
 bin = "./tmp/server/homelab-dashboard"
 include_ext = ["go", "html", "css", "js", "ts"]

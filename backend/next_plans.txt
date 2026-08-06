@@ -1,0 +1,15 @@
+make health endpoint to check database health, 
+air health and systemd health and have air compile the last binary, 
+and if these are down make sure the app displays a down page
+
+
+
+Your tooling could externalize things like:
+
+current process health
+last successful build
+current commit SHA
+startup time and uptime
+database connectivity
+recent build failure
+logs and restart controls
