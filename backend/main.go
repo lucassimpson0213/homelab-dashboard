@@ -6,7 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"path/filepath"
+	_ "path/filepath"
 
 	_ "github.com/lib/pq"
 )
@@ -24,8 +24,8 @@ func cors(w http.ResponseWriter) {
 	w.Header().Set("x-custom-header", "Hello")
 }
 
-var html, err = filepath.Abs("../frontend/dist/index.html")
-var templates = template.Must(template.ParseFiles(html))
+
+var templates = template.Must(template.ParseFiles("/home/lucassimpson/DEV/homelab-dashboard/frontend/dist/index.html"))
 
 type PageData struct {
 	Path string
@@ -56,7 +56,6 @@ func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
 		rw.WriteHeader(http.StatusOK)
 	}
-    
 
 }
 func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
@@ -138,6 +137,7 @@ func rootHandler(rw http.ResponseWriter, r *http.Request) {
 type PgConnection struct {
 	connect *sql.DB
 }
+
 // TODO make repoistory for database to decouple the database
 func (pg *PgConnection) getConnection() (*sql.DB, error) {
 	if pg.connect != nil {
