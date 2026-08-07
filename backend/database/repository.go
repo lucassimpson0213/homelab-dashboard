@@ -1,27 +1,27 @@
-//   Database repository pattern for better reusability
-//   This package helps to abstract database interfaces from their implementation 
-//   for looser coupling between components
+// Database repository pattern for better reusability
+// This package helps to abstract database interfaces from their implementation
+// for looser coupling between components
 package database
 
 import (
 	"database/sql"
+	"os"
 	// "encoding/json"
 	// "html/template"
 	"log"
 	// "net/http"
+	_ "embed"
+	"log/slog"
 	_ "path/filepath"
 
-	_ "embed"
 	_ "github.com/lib/pq"
 )
-
-
 
 /*
 *   Database repository pattern for better reusability
 *
 *
-*/
+ */
 
 //go:embed getresource.sql
 var resourcesql string
@@ -41,9 +41,20 @@ func (repo *Repository) initConnect() {
 	error := repo.pg.getConnection()
 
 	if error != nil {
-		log.Fatal(error)
+		slog.Error("Database Init failed", "error", error)
 	}
 
+}
+
+
+func (repo *Repository) GetLinks() {
+	db := repo.pg.connect
+	sql := repo.resourceSql
+	rows, error := db.Query(sql)
+
+	if error != nil {
+         
+	}
 }
 
 
