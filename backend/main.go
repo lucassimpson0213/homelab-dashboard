@@ -1,13 +1,13 @@
 package main
 
 import (
-	"database/sql"
 	"encoding/json"
+	"database/sql"
+	"homelab-dashboard/db"
 	"html/template"
 	"log"
+	"log/slog"
 	"net/http"
-	_ "path/filepath"
-
 	_ "github.com/lib/pq"
 )
 
@@ -23,7 +23,6 @@ func cors(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 	w.Header().Set("x-custom-header", "Hello")
 }
-
 
 var templates = template.Must(template.ParseFiles("/home/lucassimpson/DEV/homelab-dashboard/frontend/dist/index.html"))
 
@@ -64,46 +63,24 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 		rw.WriteHeader(http.StatusOK)
 		return
 	}
-	// pg := PgConnection{}
-	//
-	// db, err := pg.getConnection()
-	//
-	// if err != nil {
-	// 	log.Fatal("pg connection failed")
-	// }
-	//
-	// rows, error := db.Query("SELECT resource_id, resource_name, url FROM public.resource")
-	//
-	// if error != nil {
-	// 	log.Println(error)
-	// 	log.Fatal("problem with db query")
-	// }
-	//
-	// defer rows.Close()
-	//
-	// //I guess this inits the string array compared to using a compile time static value
-	// //slices are like references where regular arrays are copied by value
-	// resources := make([]Resource, 10)
-	// // https://pkg.go.dev/database/sql#DB.Query
-	// for rows.Next() {
-	// 	var resource_id, resource_name, url string
-	// 	if err := rows.Scan(&resource_id, &resource_name, &url); err != nil {
-	// 		log.Print("There has been an error with the rows scanner for the database; in get links handler")
-	// 		log.Fatal(err)
-	// 	}
-	// 	resource := Resource{ResourceId: resource_id, ResourceName: resource_name, Url: url}
-	//
-	// 	resources = append(resources, resource)
-	//
-	// }
-	// if err := rows.Err(); err != nil {
-	// 	log.Fatal(err)
-	// }
-	//
-	// b, error := json.Marshal(resources)
-	// if error != nil {
-	// 	log.Fatal(error)
-	// }
+
+	repository, err := db.New()
+
+	if err != nil {
+		slog.Error("Error occured while calling db.New(): ", "err", err)
+	}
+
+	resources, repoerr := repository.GetResources()
+	
+	if repoerr != nil {
+		slog.Error("Error occured while calling db.New(): ", "repoerr", repoerr)
+	}
+
+
+	b, error := json.Marshal(resources)
+	if error != nil {
+		log.Fatal(error)
+	}
 
 	rw.Write(b)
 	rw.WriteHeader(http.StatusOK)
