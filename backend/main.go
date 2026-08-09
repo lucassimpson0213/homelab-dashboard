@@ -11,11 +11,6 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
 
 func cors(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080,http://127.0.0.1")
@@ -54,7 +49,16 @@ type Resource struct {
 func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
 		rw.WriteHeader(http.StatusOK)
+		return 
 	}
+
+    db, err := db.New()
+    
+
+	// creating resource
+	db.CreateResource()
+
+
 
 }
 func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
@@ -73,7 +77,7 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 	resources, repoerr := repository.GetResources()
 	
 	if repoerr != nil {
-		slog.Error("Error occured while calling db.New(): ", "repoerr", repoerr)
+		slog.Error("Error occured while calling repository.GetResources(): ", "repoerr", repoerr)
 	}
 
 
@@ -87,7 +91,7 @@ func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
 
 }
 func linkHandler(rw http.ResponseWriter, r *http.Request) {
-
+   
 }
 func staticHandler(rw http.ResponseWriter, r *http.Request) {
 	cors(rw)

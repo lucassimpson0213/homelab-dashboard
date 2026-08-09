@@ -37,7 +37,8 @@ type Resource struct {
 //global variables to initialize module level state
 //go:embed getresource.sql
 var resourcesql string
-var repository *Repository
+var postresourcesql string 
+var repository *Repository = &Repository{}
 
 func New() (*Repository, error) {
 	err := repository.initConnect()
@@ -59,6 +60,17 @@ func (repo *Repository) initConnect() error {
 		return err
 	}
 	return nil
+}
+
+func (repo *Repository) CreateResource(resource Resource) (sql.Result, error) {
+    //TODO   
+	result, err := repo.pg.connect.Exec(postresourcesql, resource.ResourceName, resource.Url)
+    
+	if err != nil {
+		return nil, fmt.Errorf("error on insert statement for createResource(): ", err)
+	}
+
+	return result, nil
 }
 
 func (repo *Repository) GetResources() ([]Resource, error) {
