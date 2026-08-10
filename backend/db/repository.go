@@ -67,7 +67,7 @@ func (repo *Repository) CreateResource(resource Resource) (sql.Result, error) {
 	result, err := repo.pg.connect.Exec(postresourcesql, resource.ResourceName, resource.Url)
     
 	if err != nil {
-		return nil, fmt.Errorf("error on insert statement for createResource(): ", err)
+		return nil, fmt.Errorf("error on insert statement for createResource(): ", "err", err)
 	}
 
 	return result, nil

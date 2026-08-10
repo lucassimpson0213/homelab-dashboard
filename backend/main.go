@@ -1,9 +1,12 @@
 package main
 
+
+
 import (
-	"encoding/json"
 	"database/sql"
-	"homelab-dashboard/db"
+	"encoding/json"
+	"fmt"
+	"homelab-dashboard/db"	
 	"html/template"
 	"log"
 	"log/slog"
@@ -40,23 +43,44 @@ func main() {
 	log.Fatal(http.ListenAndServe("localhost:8080", nil))
 }
 
-type Resource struct {
-	Url          string `json:"url"`
-	ResourceId   string `json:"resourceId"`
-	ResourceName string `json:"resourceName"`
-}
 
-func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
+func postLinkHandler(rw http.ResponseWriter, r *http.Request) (error){
 	if r.Method == http.MethodOptions {
 		rw.WriteHeader(http.StatusOK)
-		return 
+		return nil
 	}
 
-    db, err := db.New()
-    
+    database, err := db.New()
+	
+	if err != nil {
+		return fmt.Errorf("There has been an error in postLinkHandler with the db: %w", "err", err)
+	}
 
+
+	var resource db.Resource
+    
+	
+	decodeErr := json.NewDecoder(r.Body).Decode(&resource)
 	// creating resource
-	db.CreateResource()
+	if decodeErr != nil {
+		return fmt.Errorf("There has been an error decoding the resource: %w", "decodeErr", decodeErr)
+	}
+	result, err := database.CreateResource(resource)
+
+	id, iderr := result.LastInsertId()
+	rowsaffected, rowsaerror := result.RowsAffected()
+
+
+    
+	if iderr != nil && rowsaerror != nil {
+		rw.Header().Set("Content-Type", "application/json")
+		rw.Write([]byte("There is no info to report for the insert id or the rows affected"))
+	}
+
+	rw.Write()
+
+
+
 
 
 
