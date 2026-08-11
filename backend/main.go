@@ -44,16 +44,15 @@ func main() {
 }
 
 
-func postLinkHandler(rw http.ResponseWriter, r *http.Request) (error){
+func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
 		rw.WriteHeader(http.StatusOK)
-		return nil
 	}
 
     database, err := db.New()
 	
 	if err != nil {
-		return fmt.Errorf("There has been an error in postLinkHandler with the db: %w", "err", err)
+	    http.Error(rw, "Database failed to be initialized, postgres cannot be queried", http.StatusServiceUnavailable)
 	}
 
 
@@ -63,26 +62,25 @@ func postLinkHandler(rw http.ResponseWriter, r *http.Request) (error){
 	decodeErr := json.NewDecoder(r.Body).Decode(&resource)
 	// creating resource
 	if decodeErr != nil {
-		return fmt.Errorf("There has been an error decoding the resource: %w", "decodeErr", decodeErr)
+		// return fmt.Errorf("There has been an error decoding the resource: %w", "decodeErr", decodeErr)
 	}
 	result, err := database.CreateResource(resource)
 
-	id, iderr := result.LastInsertId()
+
 	rowsaffected, rowsaerror := result.RowsAffected()
 
 
-    
-	if iderr != nil && rowsaerror != nil {
-		rw.Header().Set("Content-Type", "application/json")
-		rw.Write([]byte("There is no info to report for the insert id or the rows affected"))
+	if rowsaerror != nil {
+		http.Error(rw, "failed to get rows affected from database", http.StatusInternalServerError)
 	}
 
-	rw.Write()
 
 
+	encoded, err := json.Marshal(result)	
 
-
-
+    
+	rw.Header().Set("Content-Type", "application/json")
+	rw.Write(encoded)
 
 }
 func getLinksHandler(rw http.ResponseWriter, r *http.Request) {
