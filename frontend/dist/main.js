@@ -23,18 +23,22 @@ async function handleSubmit(event, form, input) {
     }
     if (URL.canParse(data)) {
         let fd = new FormData(form);
-        let posted = fetch('http://localhost:8080/api/getlinks', {
-            method: "POST",
-            body: fd
-        });
+        console.log(fd);
         let fetched = fetch('http://localhost:8080/api/getlinks', {
             method: "POST",
             body: fd
         });
         let result = await tryCatch(fetched);
+        let postlinkresult = await tryCatch(fetch('http://localhost:8080/api/postlink', {
+            method: "POST",
+            body: fd
+        }));
         if (result.error !== null) {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements";
+        }
+        if (postlinkresult.error) {
+            console.error(postlinkresult.error);
         }
         let currentList = document.querySelector("ul");
         if (currentList == null) {

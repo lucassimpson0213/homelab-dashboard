@@ -45,10 +45,8 @@ async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HT
     if (URL.canParse(data)) {
         let fd = new FormData(form);
 
-        let posted = fetch('http://localhost:8080/api/getlinks', {
-            method: "POST",
-            body: fd
-        });
+
+        console.log(fd)
 
 
         let fetched = fetch('http://localhost:8080/api/getlinks', {
@@ -60,10 +58,18 @@ async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HT
 
 
         let result: Result<Response, Error> = await tryCatch(fetched);
+        let postlinkresult: Result<Response, Error> = await tryCatch(fetch('http://localhost:8080/api/postlink', {
+            method: "POST",
+            body: fd
+        }))
 
         if (result.error !== null) {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements"
+        }
+
+        if (postlinkresult.error) {
+            console.error(postlinkresult.error)
         }
 
         let currentList = document.querySelector("ul");
