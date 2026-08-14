@@ -1,0 +1,3 @@
+- name: Ensure minio is installed
+  hosts: myservers
+  
