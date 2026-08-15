@@ -1,0 +1,12 @@
+#!/bin/bash
+
+tcp_port=$1
+
+
+main() {
+   sudo ss -tnlp | grep "$tcp_port"
+}
+
+main "$@"
+
+
