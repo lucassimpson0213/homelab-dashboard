@@ -1,0 +1,11 @@
+- name: intel mac services running
+  hosts: intelmac
+  tasks:
+    - name: Keep homelab dashboard containers running
+      ansible.builtin.systemd_service:
+        name: podman-compose@homelab-dashboard.service
+        state: started
+        enabled: true
+        scope: user
+      become: false
+

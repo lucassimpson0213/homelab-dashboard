@@ -1,0 +1,171 @@
+---
+- name: Configure Fedora Lenovo as homelab ops node
+  hosts: fedoralenovo
+  become: true
+
+  vars:
+    ops_root: /srv/ops
+    docker_repo_file: /etc/yum.repos.d/docker-ce.repo
+
+  tasks:
+    - name: Install DNF plugins
+      ansible.builtin.dnf:
+        name: dnf-plugins-core
+        state: present
+
+    - name: Add Docker CE repository
+      ansible.builtin.command:
+        cmd: dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+        creates: "{{ docker_repo_file }}"
+
+    - name: Install Docker Engine
+      ansible.builtin.dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+
+    - name: Enable and start Docker
+      ansible.builtin.systemd_service:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Create ops directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: root
+        group: root
+        mode: "0755"
+      loop:
+        - "{{ ops_root }}"
+        - "{{ ops_root }}/prometheus"
+        - "{{ ops_root }}/grafana"
+        - "{{ ops_root }}/grafana/provisioning"
+        - "{{ ops_root }}/grafana/provisioning/datasources"
+
+    - name: Write Prometheus configuration
+      ansible.builtin.copy:
+        dest: "{{ ops_root }}/prometheus/prometheus.yml"
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          global:
+            scrape_interval: 15s
+
+          scrape_configs:
+            - job_name: prometheus
+              static_configs:
+                - targets:
+                    - prometheus:9093
+
+            - job_name: lenovo
+              static_configs:
+                - targets:
+                    - node-exporter:9100
+
+    - name: Provision Prometheus datasource in Grafana
+      ansible.builtin.copy:
+        dest: "{{ ops_root }}/grafana/provisioning/datasources/prometheus.yml"
+        owner: root
+        group: root
+        mode: "0644"
+        content: |
+          apiVersion: 1
+
+          datasources:
+            - name: Prometheus
+              type: prometheus
+              access: proxy
+              url: http://prometheus:9093
+              isDefault: true
+              editable: true
+
+    - name: Create Docker ops network
+      community.docker.docker_network:
+        name: homelab-ops
+
+    - name: Create Prometheus volume
+      community.docker.docker_volume:
+        name: prometheus-data
+
+    - name: Create Grafana volume
+      community.docker.docker_volume:
+        name: grafana-data
+
+    - name: Create Uptime Kuma volume
+      community.docker.docker_volume:
+        name: uptime-kuma-data
+
+    - name: Run node exporter
+      community.docker.docker_container:
+        name: node-exporter
+        image: prom/node-exporter:latest
+        state: started
+        restart_policy: unless-stopped
+        networks:
+          - name: homelab-ops
+        published_ports:
+          - "9100:9100"
+        volumes:
+          - "/:/host:ro,rslave"
+        command:
+          - "--path.rootfs=/host"
+
+    - name: Run Prometheus
+      community.docker.docker_container:
+        name: prometheus
+        image: prom/prometheus:latest
+        state: started
+        restart_policy: unless-stopped
+        networks:
+          - name: homelab-ops
+        published_ports:
+          - "9093:9093"
+        volumes:
+          - "{{ ops_root }}/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro,Z"
+          - "prometheus-data:/prometheus"
+
+    - name: Run Grafana
+      community.docker.docker_container:
+        name: grafana
+        image: grafana/grafana:latest
+        state: started
+        restart_policy: unless-stopped
+        networks:
+          - name: homelab-ops
+        published_ports:
+          - "3000:3000"
+        volumes:
+          - "grafana-data:/var/lib/grafana"
+          - "{{ ops_root }}/grafana/provisioning:/etc/grafana/provisioning:ro,Z"
+
+    - name: Run Uptime Kuma
+      community.docker.docker_container:
+        name: uptime-kuma
+        image: louislam/uptime-kuma:2
+        state: started
+        restart_policy: unless-stopped
+        networks:
+          - name: homelab-ops
+        published_ports:
+          - "3001:3001"
+        volumes:
+          - "uptime-kuma-data:/app/data"
+
+    - name: Open homelab monitoring ports in firewalld
+      ansible.posix.firewalld:
+        port: "{{ item }}/tcp"
+        permanent: true
+        immediate: true
+        state: enabled
+      loop:
+        - "3000"
+        - "3001"
+        - "9093"
+        - "9100"

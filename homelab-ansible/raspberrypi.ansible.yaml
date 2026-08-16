@@ -8,12 +8,19 @@
         verbose_output: true
         disk_usage: true
       register: result
-
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: minio.license
+        dest: /srv/ssd/minio.license
+        owner: lucas
+        group: lucas
+        mode: '0644'
     - name: Ensure minio is installed
       community.docker.docker_container:
         name: minio
-        image: quay.io/minio/minio
+        image: quay.io/minio/aistor/minio:latest
         state: started
+        pull: always
         published_ports:
           - 9000:9000
           - 9001:9001
@@ -24,11 +31,34 @@
           - type: bind
             source: /srv/ssd/minio.license
             target: /minio.license
+        command:
+          - minio
+          - server
+          - /data
+          - --license
+          - /minio.license
 
     - name: Make sure cockpit is running
       ansible.builtin.systemd_service:
         state: started
         name: cockpit
 
-    - name: check to see what is running on port 53
-      ansible.builtin.script: /home/DEV/homelab-dashboard/service-on-port  53
+    - name: Verify port 53 is open
+      ansible.builtin.wait_for:
+        port: 53          # Port to check
+        state: started  # Ensure the port is actively listening
+        timeout: 10       # Fail if not listening within 10 seconds
+        host: "0.0.0.0"   # Check all network interfaces (default: 127.0.0.1)
+    - name: Verify Pi-hole is running
+      ansible.builtin.command: pihole status
+      changed_when: false
+    - name: Copy backup script
+      ansible.builtin.copy:
+        src: install-mc.sh
+        dest: /usr/local/bin/install-mc.sh
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Ensure that mc is installed
+      ansible.builtin.command: /usr/local/bin/install-mc.sh
