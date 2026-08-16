@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   db:
-    image: postgres:latest
+    image: postgres:18
     container_name: postgres_db_fedora
     environment:
       POSTGRES_USER: lucas
@@ -11,6 +11,16 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql
+
+  databasus:
+    container_name: databasus
+    image: databasus/databasus:latest
+    network_mode: host
+    ports:
+      - "4005:4005"
+    volumes:
+      - ./databasus-data:/databasus-data
+    restart: unless-stopped
 
 volumes:
   pgdata:

@@ -1,6 +1,29 @@
 - name: Configure raspberry pi
   hosts: raspberrypi
   become: true
+  vars_files:
+    - vault.yml
+
+  vars:
+      rclone_version: 1.74.3
+      rclone_configs:
+        - name: google-drive
+          properties:
+            type: drive
+            client_id: "{{ vault_google_client_id }}"
+            client_secret: "{{ vault_google_client_secret }}"
+            token: ' {{ vault_google_drive_token }}'
+
+        - name: minio
+          properties:
+            type: s3
+            provider: Minio
+            access_key_id: "{{ vault_minio_access_key }}"
+            secret_access_key: "{{ vault_minio_secret_key }}"
+            endpoint: http://localhost:9000
+  roles:
+    - stefangweichinger.ansible_rclone
+
   tasks:
     - name: Get info on docker host and verbose list images
       community.docker.docker_host_info:
@@ -8,6 +31,13 @@
         verbose_output: true
         disk_usage: true
       register: result
+    - name: Ensure MinIO data directory exists
+      ansible.builtin.file:
+        path: /srv/ssd/minio-data
+        state: directory
+        owner: lucas
+        group: lucas
+        mode: "0750"
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
         src: minio.license
@@ -62,3 +92,15 @@
 
     - name: Ensure that mc is installed
       ansible.builtin.command: /usr/local/bin/install-mc.sh
+    - name: setup cron script for rclone 
+      ansible.builtin.cron:
+        name: backup to google drive from minio
+        minute: "0"
+        hour: "5,2"
+        job: >-
+          /usr/local/bin/rclone copy
+          minio:databasus-backups
+          google-drive:minio-backups/postgres-backups
+          --config /root/.config/rclone/rclone.conf
+          >> /var/log/rclone-minio-backup.log 2>&1
+

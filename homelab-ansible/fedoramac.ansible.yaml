@@ -1,11 +1,50 @@
 - name: intel mac services running
-  hosts: intelmac
+  hosts: localhost
+  become: true
   tasks:
-    - name: Keep homelab dashboard containers running
-      ansible.builtin.systemd_service:
-        name: podman-compose@homelab-dashboard.service
-        state: started
-        enabled: true
-        scope: user
-      become: false
+    - name: delete all versions of docker or podman
+      ansible.builtin.dnf:
+        name:
+          - docker
+          - docker-client
+          - docker-client-latest
+          - docker-common
+          - docker-latest
+          - docker-latest-logrotate
+          - docker-logrotate
+          - docker-engine
+          - podman-docker
+        state: absent
+    - name: Add Docker's official Fedora repository
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/fedora/docker-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
+        owner: root
+        group: root
+        mode: "0644"
 
+    - name: Install Docker Engine and Compose plugin
+      ansible.builtin.dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+
+    - name: Enable and start Docker
+      ansible.builtin.systemd_service:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Allow Lucas to use Docker without sudo
+      ansible.builtin.user:
+        name: lucas
+        groups: docker
+        append: true
+    - name: Start Docker Compose services
+      community.docker.docker_compose_v2:
+        project_src: /home/lucassimpson/DEV/homelab-dashboard/backend
+        state: present
