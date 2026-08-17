@@ -1,9 +1,0 @@
-- name: intel mac services running
-  hosts: localhost
-  become: true
-  tasks:
-    - name: Install docker community edition
-    - name: Start Docker Compose services
-      community.docker.docker_compose_v2:
-        project_src: /home/lucassimpson/DEV/homelab-dashboard/backend
-        state: present
