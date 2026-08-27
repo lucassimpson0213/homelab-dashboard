@@ -60,7 +60,7 @@ async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HT
         let result: Result<Response, Error> = await tryCatch(fetched);
         let postlinkresult: Result<Response, Error> = await tryCatch(fetch('http://localhost:8080/api/postlink', {
             method: "POST",
-            body: fd
+            body: JSON.stringify(fd)
         }))
 
         if (result.error !== null) {
@@ -69,7 +69,7 @@ async function handleSubmit(event: SubmitEvent, form: HTMLFormElement, input: HT
         }
 
         if (postlinkresult.error) {
-            console.error(postlinkresult.error)
+            console.error("There has been an error calling the post link endpoint")
         }
 
         let currentList = document.querySelector("ul");

@@ -1,1 +1,1 @@
-SELECT resource_id, resource_name, url FROM public.resource
+SELECT resource_id, resource_name, resource_url FROM public.resource

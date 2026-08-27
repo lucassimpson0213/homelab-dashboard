@@ -5,5 +5,5 @@ tmp_dir = "tmp"
 stop_on_error=true
 cmd = "./scripts/build-ts-and-go.sh"
 bin = "./tmp/server/homelab-dashboard"
-include_ext = ["go", "html", "css", "js", "ts"]
+include_ext = ["go", "html", "css", "js", "ts", "sql"]
 exclude_dir = ["tmp", "frontend/node_modules", "frontend/dist"]

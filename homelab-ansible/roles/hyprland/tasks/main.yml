@@ -1,0 +1,8 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Enable hyprland repo
+  ansible.builtin.dnf: 
+    enablerepo: 
+     - lionheartp/Hyprland
+      # consider doing vm role for testing to see if it works
+# tasks file for hyprland

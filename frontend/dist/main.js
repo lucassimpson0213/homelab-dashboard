@@ -31,14 +31,14 @@ async function handleSubmit(event, form, input) {
         let result = await tryCatch(fetched);
         let postlinkresult = await tryCatch(fetch('http://localhost:8080/api/postlink', {
             method: "POST",
-            body: fd
+            body: JSON.stringify(fd)
         }));
         if (result.error !== null) {
             let linkList = document.createElement("li");
             linkList.innerText = "There are no elements";
         }
         if (postlinkresult.error) {
-            console.error(postlinkresult.error);
+            console.error();
         }
         let currentList = document.querySelector("ul");
         if (currentList == null) {

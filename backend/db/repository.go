@@ -7,7 +7,6 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	// "net/http"
 	_ "embed"
 	"log/slog"
 	_ "path/filepath"
@@ -37,6 +36,7 @@ type Resource struct {
 //global variables to initialize module level state
 //go:embed getresource.sql
 var resourcesql string
+//go:embed postresource.sql
 var postresourcesql string 
 var repository *Repository = &Repository{}
 

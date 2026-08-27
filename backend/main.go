@@ -55,7 +55,7 @@ func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
 	}
 
 	var resource db.Resource
-
+	fmt.Println(r.Body)
 	decodeErr := json.NewDecoder(r.Body).Decode(&resource)
 	// creating resource
 	if decodeErr != nil {
@@ -65,8 +65,14 @@ func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
 		http.Error(rw, "There has been an error decoding the resource", http.StatusInternalServerError)
 		return 
 	}
-	result, err := database.CreateResource(resource)
 
+	result, err := database.CreateResource(resource)
+	slog.Debug("creating resource: ")
+
+	if err != nil {
+		errorStr := fmt.Sprintf("There has been an error creating the resource: %s", err.Error())
+		slog.Error(errorStr)
+	}
 	rowsaffected, rowsaerror := result.RowsAffected()
 
 	if rowsaerror != nil {
