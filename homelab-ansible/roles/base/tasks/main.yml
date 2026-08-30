@@ -1,0 +1,23 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for base
+- name: Install base packages
+  ansible.builtin.package:
+    name:
+      - git
+      - curl
+      - nvim
+      - tailscale
+    state: present
+
+- name: configure user.email
+  community.general.git_config:
+     name: user.email
+     scope: global
+     value: "lucas.simpson0213@gmail.com"
+- name:  configure user.name 
+  community.general.git_config: 
+    name: user.name 
+    scope: global
+    value: "Lucas Simpson"
+
