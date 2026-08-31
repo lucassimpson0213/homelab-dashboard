@@ -13,5 +13,9 @@ myservers:
       ansible_user: lucas
       ansible_password: lucas
 
+# tailscale:
+  # hosts: 
+    
+
 
 

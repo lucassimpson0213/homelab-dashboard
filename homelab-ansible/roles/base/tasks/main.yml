@@ -8,6 +8,9 @@
       - curl
       - nvim
       - tailscale
+      - fd 
+      - gh
+      - npm
     state: present
 
 - name: configure user.email
@@ -20,4 +23,25 @@
     name: user.name 
     scope: global
     value: "Lucas Simpson"
+- name: Create ssh key directory
+  ansible.builtin.file:
+    path: {{github_ssh_dir}}
+    state: directory 
+    mode: '0700'
+
+- name: Install GitHub private key
+  ansible.builtin.copy:
+    content: "{{ github_ssh_private_key }}"
+    dest: "{{ github_ssh_dir }}/id_ed25519"
+    mode: "0600"
+  no_log: true
+
+
+- name: Install ansible language server
+  community.general.npm: 
+    name: @ansible/ansible-language-server
+    global: true
+    
+
+
 
