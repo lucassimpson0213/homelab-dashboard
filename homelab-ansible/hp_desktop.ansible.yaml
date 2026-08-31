@@ -1,0 +1,11 @@
+---
+- name: Configure workstation
+  hosts: fedoralenovo
+  become: true
+
+  vars:
+    ops_root: /srv/ops
+    docker_repo_file: /etc/yum.repos.d/docker-ce.repo
+
+  tasks:
+    
