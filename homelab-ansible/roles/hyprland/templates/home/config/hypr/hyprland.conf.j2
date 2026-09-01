@@ -1,0 +1,486 @@
+{{ ansible_managed | comment }}
+# https://wiki.hyprland.org/Configuring/
+
+################
+### MONITORS ###
+################
+
+# See https://wiki.hyprland.org/Configuring/Monitors/
+monitor=desc:BOE 0x0BCA,2256x1504@60.00Hz,auto-left,2
+monitor=desc:LG Electronics LG TV SSCR2 0x01010101,3840x2160@120.00Hz,auto-right,1
+monitor=desc:Pixio USA PX277 Pro 0x00000001,2560x1440@144.00Hz,auto-right,1
+
+# Fallback for any other monitors
+monitor=,preferred,auto,auto
+
+
+################
+### GESTURES ###
+################
+
+gestures {
+    workspace_swipe_distance = 300
+    workspace_swipe_invert = false
+    workspace_swipe_min_speed_to_force = 30
+    workspace_swipe_cancel_ratio = 0.5
+    workspace_swipe_create_new = true
+    workspace_swipe_forever = true
+}
+
+gesture = 3, horizontal, workspace
+gesture = 3, down, mod: ALT, close
+gesture = 3, up, mod: SUPER, scale: 1.5, fullscreen
+
+###################
+### MY PROGRAMS ###
+###################
+
+# Set programs that you use
+$terminal = alacritty
+$fileManager = thunar
+$menu = wofi --show drun --allow-images
+$browser = microsoft-edge-stable --disable-features=WaylandWpColorManagerV1
+$lock = hyprlock
+$logout = wlogout -p layer-shell
+
+
+#################
+### AUTOSTART ###
+#################
+
+# Core system services
+exec-once = gnome-keyring-daemon --start --components=secrets
+exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user start xdg-desktop-portal-hyprland
+exec-once = systemctl --user start xdg-desktop-portal-gtk
+exec-once = systemctl --user start hyprpolkitagent
+exec-once = xhost +SI:localuser:$(whoami)
+
+# Wallpaper and theming
+exec-once = swaybg -m fill -i ~/Pictures/Wallpapers/gray-abstract.jpg
+# Alternative: exec-once = hyprpaper
+
+# Status bar and applets
+exec-once = waybar
+exec-once = nm-applet --indicator
+
+# Clipboard manager
+exec-once = wl-paste --watch cliphist store
+exec-once = rm "$HOME/.cache/cliphist/db" &
+
+# Dock
+exec-once = nwg-dock-hyprland -x -o "eDP-1"
+exec-once = nwg-dock-hyprland -x -o "DP-7"
+
+# Notification daemon (if using)
+# exec-once = swaync
+
+# Other applications
+exec-once = tailscale up --operator=dwallace
+exec-once = flatpak run org.fkoehler.KTailctl
+exec-once = flatpak run dev.vencord.Vesktop --start-minimized
+# exec-once = nextcloud --background
+
+# Idle management
+exec-once = hypridle
+
+
+#############################
+### ENVIRONMENT VARIABLES ###
+#############################
+
+env = XDG_CURRENT_DESKTOP,Hyprland
+env = XDG_SESSION_TYPE,wayland
+env = XDG_SESSION_DESKTOP,Hyprland
+
+# Cursor
+env = HYPRCURSOR_THEME,{{ hyprland_palette.cursor_theme }}
+env = HYPRCURSOR_SIZE,24
+#env = XCURSOR_SIZE,24
+#env = HYPRCURSOR_SIZE,24
+
+# QT theming
+env = QT_QPA_PLATFORM,wayland;xcb
+env = QT_QPA_PLATFORMTHEME,qt6ct
+env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+
+# GTK theming
+env = GDK_BACKEND,wayland,x11
+
+# Mozilla/Firefox
+env = MOZ_ENABLE_WAYLAND,1
+
+
+#####################
+### LOOK AND FEEL ###
+#####################
+
+# https://wiki.hyprland.org/Configuring/Variables/#general
+general {
+    gaps_in = 5
+    gaps_out = 20
+    border_size = 2
+
+    # {{ hyprland_palette.name }} Color Palette Borders
+    # Active: Gradient of accent colors
+    col.active_border = rgba({{ hyprland_palette.accent_primary }}ee) rgba({{ hyprland_palette.accent_secondary }}ee) rgba({{ hyprland_palette.accent_tertiary }}ee) 45deg
+    # Inactive: Dark background color with transparency
+    col.inactive_border = rgba({{ hyprland_palette.bg_dark }}aa)
+
+    resize_on_border = true
+    extend_border_grab_area = 15
+    hover_icon_on_border = true
+
+    allow_tearing = false
+    layout = dwindle
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#decoration
+decoration {
+    rounding = 10
+
+    active_opacity = 1.0
+    inactive_opacity = 0.95
+    fullscreen_opacity = 1.0
+
+    # https://wiki.hyprland.org/Configuring/Variables/#blur
+    blur {
+        enabled = true
+        size = 5
+        passes = 2
+        ignore_opacity = true
+        new_optimizations = true
+        xray = false
+        noise = 0.0117
+        contrast = 1.0
+        brightness = 1.0
+        vibrancy = 0.1696
+        vibrancy_darkness = 0.0
+        popups = true
+        popups_ignorealpha = 0.2
+    }
+
+    # Dim unfocused windows
+    dim_inactive = false
+    dim_strength = 0.05
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#animations
+animations {
+    enabled = true
+
+    bezier = easeOutQuint, 0.23, 1, 0.32, 1
+    bezier = easeInOutCubic, 0.65, 0.05, 0.36, 1
+    bezier = linear, 0, 0, 1, 1
+    bezier = almostLinear, 0.5, 0.5, 0.75, 1.0
+    bezier = quick, 0.15, 0, 0.1, 1
+
+    animation = global, 1, 10, default
+    animation = border, 1, 5.39, easeOutQuint
+    animation = borderangle, 1, 100, linear, loop
+    animation = windows, 1, 4.79, easeOutQuint, slide
+    animation = windowsIn, 1, 4.1, easeOutQuint, popin 87%
+    animation = windowsOut, 1, 1.49, linear, popin 87%
+    animation = windowsMove, 1, 4.79, easeOutQuint, slide
+    animation = fadeIn, 1, 1.73, almostLinear
+    animation = fadeOut, 1, 1.46, almostLinear
+    animation = fade, 1, 3.03, quick
+    animation = layers, 1, 3.81, easeOutQuint, slide
+    animation = layersIn, 1, 4, easeOutQuint, slide
+    animation = layersOut, 1, 1.5, linear, fade
+    animation = fadeLayersIn, 1, 1.79, almostLinear
+    animation = fadeLayersOut, 1, 1.39, almostLinear
+    animation = workspaces, 1, 1.94, almostLinear, slide
+    animation = workspacesIn, 1, 1.21, almostLinear, slidevert
+    animation = workspacesOut, 1, 1.94, almostLinear, slidevert
+    animation = specialWorkspace, 1, 3, easeOutQuint, slidevert
+}
+
+# Smart gaps / No gaps when only one window
+workspace = w[t1], gapsout:0, gapsin:0, border:false, rounding:false
+workspace = w[tg1], gapsout:0, gapsin:0, border:false, rounding:false
+workspace = f[1], gapsout:0, gapsin:0, border:false, rounding:false
+
+# See https://wiki.hyprland.org/Configuring/Dwindle-Layout/
+dwindle {
+    pseudotile = true
+    preserve_split = true
+    smart_split = false
+    smart_resizing = true
+    force_split = 0
+    special_scale_factor = 0.8
+}
+
+# See https://wiki.hyprland.org/Configuring/Master-Layout/
+master {
+    new_status = master
+    new_on_top = false
+    mfact = 0.55
+    orientation = left
+    special_scale_factor = 0.8
+}
+
+# https://wiki.hyprland.org/Configuring/Variables/#misc
+misc {
+    force_default_wallpaper = 0
+    disable_hyprland_logo = true
+    disable_splash_rendering = true
+
+    mouse_move_enables_dpms = true
+    key_press_enables_dpms = true
+
+    enable_swallow = true
+    swallow_regex = ^(ghostty|kitty|alacritty|Alacritty)$
+    swallow_exception_regex = ^(wev)$
+
+    focus_on_activate = true
+    animate_manual_resizes = false
+    animate_mouse_windowdragging = false
+
+    disable_autoreload = false
+
+    # VRR
+    vrr = 2
+    vfr = true
+}
+
+# Cursor behavior
+cursor {
+    no_hardware_cursors = false
+    no_break_fs_vrr = false
+    min_refresh_rate = 24
+    hotspot_padding = 1
+    inactive_timeout = 0
+    no_warps = false
+    persistent_warps = false
+    warp_on_change_workspace = false
+}
+
+
+#############
+### INPUT ###
+#############
+
+input {
+    kb_layout = us
+    kb_variant =
+    kb_model =
+    kb_options =
+    kb_rules =
+
+    follow_mouse = 1
+    mouse_refocus = true
+    float_switch_override_focus = 2
+
+    sensitivity = 0
+    accel_profile = adaptive
+
+    touchpad {
+        natural_scroll = true
+        disable_while_typing = true
+        tap-to-click = true
+        drag_lock = false
+        tap-and-drag = true
+        scroll_factor = 1.0
+        middle_button_emulation = false
+        clickfinger_behavior = false
+    }
+}
+
+# Example per-device config
+device {
+    name = epic-mouse-v1
+    sensitivity = -0.5
+}
+
+
+###################
+### KEYBINDINGS ###
+###################
+
+$mainMod = SUPER
+
+# Application launchers
+bind = $mainMod, T, exec, $terminal
+bind = $mainMod, B, exec, $browser
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, SPACE, exec, $menu
+bind = $mainMod SHIFT, V, exec, cliphist list | wofi --show dmenu -H 600 -W 900 | cliphist decode | wl-copy
+
+# Window management
+bind = $mainMod, C, killactive,
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, F, fullscreen, 0
+bind = $mainMod SHIFT, F, fullscreen, 1
+bind = $mainMod, P, pseudo # dwindle
+bind = $mainMod, J, togglesplit # dwindle
+
+# Session management
+bind = $mainMod, L, exec, $lock
+bind = $mainMod SHIFT, L, exec, $logout
+bind = $mainMod, M, exit,
+
+# Screenshots
+bind = $mainMod SHIFT, S, exec, grim -g "$(slurp)" - | wl-copy && wl-paste | cliphist store
+bind = $mainMod SHIFT, Print, exec, grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+bind = , Print, exec, grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+
+# Move focus with mainMod + arrow keys
+bind = $mainMod, left, movefocus, l
+bind = $mainMod, right, movefocus, r
+bind = $mainMod, up, movefocus, u
+bind = $mainMod, down, movefocus, d
+
+# Move focus with mainMod + vim keys
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, k, movefocus, u
+bind = $mainMod, j, movefocus, d
+
+# Move windows with mainMod + SHIFT + arrow keys
+bind = $mainMod SHIFT, left, movewindow, l
+bind = $mainMod SHIFT, right, movewindow, r
+bind = $mainMod SHIFT, up, movewindow, u
+bind = $mainMod SHIFT, down, movewindow, d
+
+# Resize windows with mainMod + CTRL + arrow keys
+bind = $mainMod CTRL, left, resizeactive, -20 0
+bind = $mainMod CTRL, right, resizeactive, 20 0
+bind = $mainMod CTRL, up, resizeactive, 0 -20
+bind = $mainMod CTRL, down, resizeactive, 0 20
+
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+# Move active window to a workspace silently with mainMod + CTRL + SHIFT + [0-9]
+bind = $mainMod CTRL SHIFT, 1, movetoworkspacesilent, 1
+bind = $mainMod CTRL SHIFT, 2, movetoworkspacesilent, 2
+bind = $mainMod CTRL SHIFT, 3, movetoworkspacesilent, 3
+bind = $mainMod CTRL SHIFT, 4, movetoworkspacesilent, 4
+bind = $mainMod CTRL SHIFT, 5, movetoworkspacesilent, 5
+bind = $mainMod CTRL SHIFT, 6, movetoworkspacesilent, 6
+bind = $mainMod CTRL SHIFT, 7, movetoworkspacesilent, 7
+bind = $mainMod CTRL SHIFT, 8, movetoworkspacesilent, 8
+bind = $mainMod CTRL SHIFT, 9, movetoworkspacesilent, 9
+bind = $mainMod CTRL SHIFT, 0, movetoworkspacesilent, 10
+
+# Special workspace (scratchpad)
+bind = $mainMod, S, togglespecialworkspace, magic
+bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# Scroll through existing workspaces with CTRL + arrow keys
+bind = CTRL, left, workspace, e-1
+bind = CTRL, right, workspace, e+1
+
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+# Laptop multimedia keys
+bindel = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+bindel = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindel = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindel = , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindel = , XF86MonBrightnessUp, exec, brightnessctl set 10%+
+bindel = , XF86MonBrightnessDown, exec, brightnessctl set 10%-
+
+# Media control (requires playerctl)
+bindl = , XF86AudioNext, exec, playerctl next
+bindl = , XF86AudioPause, exec, playerctl play-pause
+bindl = , XF86AudioPlay, exec, playerctl play-pause
+bindl = , XF86AudioPrev, exec, playerctl previous
+bindl = , XF86AudioStop, exec, playerctl stop
+
+
+##############################
+### WINDOWS AND WORKSPACES ###
+##############################
+
+# Layer rules
+layerrule = blur on, match:namespace waybar
+layerrule = blur on, match:namespace notifications
+layerrule = blur on, match:namespace wofi
+
+# Window rules v2
+# Suppress maximize events
+# windowrule = suppressevent maximize, class:.*
+
+# Fix some dragging issues with XWayland
+# windowrule = nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0
+
+# Fix blur around menus in x11 windows
+# windowrule = noblur, title:^()$, class:^()$
+
+# Picture-in-Picture
+# windowrule = float, title:^(Picture-in-Picture)$
+# windowrule = pin, title:^(Picture-in-Picture)$
+# windowrule = move 69.5% 4%, title:^(Picture-in-Picture)$
+
+# Float specific applications
+# windowrule = float, class:^(pavucontrol)$
+# windowrule = float, class:^(nm-connection-editor)$
+# windowrule = float, class:^(blueman-manager)$
+# windowrule = float, class:^(org.kde.polkit-kde-authentication-agent-1)$
+
+# Layer rules
+layerrule = blur on, match:namespace waybar
+layerrule = blur on, match:namespace notifications
+layerrule = blur on, match:namespace wofi
+
+# Window rules v2
+# Suppress maximize events
+# windowrule = suppressevent maximize, class:.*
+
+# Fix some dragging issues with XWayland
+# windowrule = nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0
+
+# Fix blur around menus in x11 windows
+# windowrule = noblur, title:^()$, class:^()$
+
+# Picture-in-Picture
+# windowrule = float, title:^(Picture-in-Picture)$
+# windowrule = pin, title:^(Picture-in-Picture)$
+# windowrule = move 69.5% 4%, title:^(Picture-in-Picture)$
+
+# Float specific applications
+# windowrule = float, class:^(pavucontrol)$
+# windowrule = float, class:^(nm-connection-editor)$
+# windowrule = float, class:^(blueman-manager)$
+# windowrule = float, class:^(org.kde.polkit-kde-authentication-agent-1)$
+
+
+##############################
+### LAPTOP LID CLOSURE ###
+##############################
+
+# Disable internal display when lid is closed
+bindl = , switch:on:Lid Switch, exec, hyprctl keyword monitor "eDP-1, disable"
+# Enable internal display when lid is opened
+bindl = , switch:off:Lid Switch, exec, hyprctl keyword monitor "eDP-1, 2256x1504@60, auto, 2"

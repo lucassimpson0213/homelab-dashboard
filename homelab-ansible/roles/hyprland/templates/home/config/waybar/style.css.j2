@@ -1,0 +1,98 @@
+{{ ansible_managed | comment('cblock') }}
+/* {{ hyprland_palette.name }} Color Palette */
+@define-color base00 #{{ hyprland_palette.bg_darkest }};  /* darkest background */
+@define-color base01 #{{ hyprland_palette.bg_dark }};  /* lighter background */
+
+/* Primary accent colors */
+@define-color base02 #{{ hyprland_palette.accent_primary }};  /* main text/accent */
+@define-color base03 #{{ hyprland_palette.accent_tertiary }};  /* secondary accent */
+@define-color base04 #{{ hyprland_palette.accent_secondary }};  /* medium accent */
+
+/* Alert colors */
+@define-color base05 #{{ hyprland_palette.red }};  /* red - for critical/urgent states */
+
+
+* {
+  transition: none;
+  box-shadow: none;
+}
+
+#waybar {
+  font-family: 'RobotoMonoNerdFontPropo', 'sans-serif';
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: @base02;
+  background: @base00;
+}
+
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  margin: 4px 0;
+  padding: 0 4px;
+  color: @base02;
+}
+
+#workspaces button.visible {
+  border-radius: 4px;
+  background-color: @base01;
+}
+
+#workspaces button.active {
+  border-radius: 4px;
+  color: @base00;
+  background-color: @base02;
+}
+
+#workspaces button.urgent {
+  color: @base05;
+}
+
+#tray {
+  margin: 4px 4px 4px 4px;
+  border-radius: 4px;
+  background-color: @base01;
+}
+
+#tray * {
+  padding: 0 6px;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #backlight, #clock, #temperature {
+  margin: 4px 2px;
+  padding: 0 6px;
+  color: @base02;
+  background-color: @base01;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: @base03;
+}
+
+#pulseaudio.bluetooth {
+  color: @base04;
+}
+
+#clock {
+  margin-left: 0px;
+  margin-right: 4px;
+  background-color: transparent;
+}
+
+#temperature.critical {
+  color: @base05;
+}
+
+#window {
+  font-size: 0.9em;
+  font-weight: 400;
+  font-family: 'RobotoMonoNerdFontPropo';
+}

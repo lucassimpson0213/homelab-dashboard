@@ -1,38 +1,63 @@
-Role Name
-=========
+# danmwallace.fedora.hyprland
 
-A brief description of the role goes here.
+Install and configure the Hyprland tiling Wayland compositor on Fedora, along with a
+curated set of supporting desktop tools (SDDM, Waybar, Alacritty, Wofi, nwg-drawer,
+nwg-dock-hyprland) and a themed set of user dotfiles.
 
-Requirements
-------------
+## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- Ansible >= 2.16
+- Target host running Fedora (41, 42, or 43)
+- `community.general` collection (for the `copr` module)
+- A pre-existing local user account on the target — the role does not create users
+- Privilege escalation (`become: true`) — installs system packages, enables `sddm`,
+  and switches the default systemd target to `graphical.target`
 
-Role Variables
---------------
+The role enables the `lionheartp/Hyprland` COPR repository and installs from it.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Role Variables
 
-Dependencies
-------------
+| Name             | Type | Required | Default                                 | Description                                                                 |
+|------------------|------|----------|-----------------------------------------|-----------------------------------------------------------------------------|
+| `hyprland_user`  | str  | no       | `{{ ansible_facts['env']['USER'] }}`    | Local user that owns the rendered dotfiles under `/home/<user>/.config/`.   |
+| `hyprland_theme` | str  | no       | `nord`                                  | Theme palette. One of: `monochrome`, `nord`, `tokyo-night`.                 |
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+The `hyprland_theme` value selects a palette file under `vars/themes/<theme>.yml`,
+which exposes the `hyprland_palette` dict consumed by the role's Jinja templates.
 
-Example Playbook
-----------------
+The `hyprland_user` default reads `$USER` on the controller, which is rarely the
+right value for a remote host. Override it explicitly in production.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+## Dependencies
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+None.
 
-License
--------
+## Example Playbook
 
-BSD
+```yaml
+- name: Set up a Hyprland workstation
+  hosts: workstations
+  become: true
+  roles:
+    - role: danmwallace.fedora.hyprland
+      vars:
+        hyprland_user: dwallace
+        hyprland_theme: tokyo-night
+```
 
-Author Information
-------------------
+## Testing
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+A Molecule scenario lives under `molecule/default/` using the ansible-native
+delegated driver with a Fedora podman container. Note that this role installs
+a large desktop package set (Firefox, LibreOffice, Thunderbird, etc.) and enables
+SDDM as a systemd service — a fully passing `converge` and `verify` in a
+container may require additional tuning; for high-fidelity validation run the
+role against a real Fedora VM.
+
+```bash
+molecule test -s default
+```
+
+## License
+
+MIT

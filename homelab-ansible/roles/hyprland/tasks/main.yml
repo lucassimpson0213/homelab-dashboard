@@ -1,8 +1,40 @@
-#SPDX-License-Identifier: MIT-0
+# SPDX-License-Identifier: MIT
 ---
-- name: Enable hyprland repo
-  ansible.builtin.dnf: 
-    enablerepo: 
-     - lionheartp/Hyprland
-      # consider doing vm role for testing to see if it works
 # tasks file for hyprland
+- name: Enable Hyprland COPR
+  community.general.copr:
+    name: lionheartp/Hyprland
+    state: enabled
+  become: true
+
+- name: Install Hyprland environment
+  ansible.builtin.dnf:
+    name:
+      - hyprland
+      - hyprpaper
+      - hyprpicker
+      - hypridle
+      - hyprlock
+      - hyprpolkitagent
+      - sddm
+      - waybar
+      - foot
+      - wl-clipboard
+      - grim
+      - slurp
+      - wofi
+      - pamixer
+      - pavucontrol
+      - nwg-drawer
+      - waypaper
+    state: present
+  become: true
+
+- name: clone hyprland files into config
+  ansible.builtin.git:
+    repo: git@github.com:lucassimpson0213/hyprland.git
+    dest: /home/lucassimpson/.config/hypr/
+    single_branch: yes
+    version: intelmac
+    accept_newhostkey: true
+

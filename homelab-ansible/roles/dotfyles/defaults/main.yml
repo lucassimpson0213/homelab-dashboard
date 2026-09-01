@@ -1,3 +1,23 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# defaults file for dotfyles
+# User whose dotfiles should be installed.
+dotfiles_user: "{{ ansible_user_id }}"
+
+# Override this if the target user's home is somewhere other than /home/<user>.
+dotfiles_home: "/home/{{ dotfiles_user }}"
+
+# Config directories copied into ~/.config.
+# Add "hypr" and "nvim" here after adding those directories under files/config/.
+dotfiles_config_dirs:
+  - alacritty
+  - fish
+  - kitty
+  - waybar
+  - wofi
+  - nvim
+
+# Files copied directly into the user's home directory.
+dotfiles_home_files:
+  - .bashrc
+  - .gitconfig
+  - .profile
+  - .tmux.conf

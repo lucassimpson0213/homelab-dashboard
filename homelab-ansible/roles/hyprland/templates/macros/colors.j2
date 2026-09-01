@@ -1,0 +1,4 @@
+{# Convert a 6-digit hex string (no #) to CSS rgba() with alpha 0.0-1.0 #}
+{% macro rgba(hex, alpha) -%}
+rgba({{ hex[0:2] | int(base=16) }}, {{ hex[2:4] | int(base=16) }}, {{ hex[4:6] | int(base=16) }}, {{ alpha }})
+{%- endmacro %}

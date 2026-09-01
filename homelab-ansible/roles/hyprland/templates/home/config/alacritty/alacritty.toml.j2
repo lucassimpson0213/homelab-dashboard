@@ -1,0 +1,29 @@
+{{ ansible_managed | comment }}
+# Colors ({{ hyprland_palette.name }})
+
+# Default colors
+[colors.primary]
+background = '#{{ hyprland_palette.bg_darkest | upper }}'
+foreground = '#{{ hyprland_palette.fg_dim | upper }}'
+
+# Normal colors
+[colors.normal]
+black   = '#{{ hyprland_palette.bg_dark | upper }}'
+red     = '#{{ hyprland_palette.red | upper }}'
+green   = '#{{ hyprland_palette.green | upper }}'
+yellow  = '#{{ hyprland_palette.yellow | upper }}'
+blue    = '#{{ hyprland_palette.accent_secondary | upper }}'
+magenta = '#{{ hyprland_palette.magenta | upper }}'
+cyan    = '#{{ hyprland_palette.accent_primary | upper }}'
+white   = '#{{ hyprland_palette.fg_normal | upper }}'
+
+# Bright colors
+[colors.bright]
+black   = '#{{ hyprland_palette.bg_light | upper }}'
+red     = '#{{ hyprland_palette.red | upper }}'
+green   = '#{{ hyprland_palette.green | upper }}'
+yellow  = '#{{ hyprland_palette.yellow | upper }}'
+blue    = '#{{ hyprland_palette.accent_secondary | upper }}'
+magenta = '#{{ hyprland_palette.magenta | upper }}'
+cyan    = '#{{ hyprland_palette.accent_alt | upper }}'
+white   = '#{{ hyprland_palette.fg_bright | upper }}'

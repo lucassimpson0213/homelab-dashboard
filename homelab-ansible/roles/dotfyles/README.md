@@ -1,38 +1,42 @@
-Role Name
-=========
+# dotfiles Ansible role
 
-A brief description of the role goes here.
+This role restores the portable dotfiles found in the supplied dotfiles backup.
 
-Requirements
-------------
+Included by default:
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- `.bashrc`
+- `.gitconfig`
+- `.profile`
+- `.tmux.conf`
+- `~/.config/alacritty`
+- `~/.config/fish`
+- `~/.config/kitty`
+- `~/.config/waybar`
+- `~/.config/wofi`
 
-Role Variables
---------------
+The uploaded archive contained empty `~/.config/hypr` and `~/.config/nvim` directories, so those are not included yet. Put those directories under `files/config/` and add `hypr` / `nvim` to `dotfiles_config_dirs` when you have the actual files.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Browser/session/cache-oriented directories such as Falkon profiles, Pulse runtime state, dconf binary state, and credential-oriented directories are intentionally not restored by default.
 
-Dependencies
-------------
+## Example
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```yaml
+- hosts: desktops
+  roles:
+    - role: dotfiles
+      vars:
+        dotfiles_user: lucassimpson
+        dotfiles_home: /home/lucassimpson
+```
 
-Example Playbook
-----------------
+If the username differs per machine, define `dotfiles_user` in inventory or host vars.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+## Add another config directory
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Copy it into:
 
-License
--------
+```text
+roles/dotfiles/files/config/<name>/
+```
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Then add the directory name to `dotfiles_config_dirs`.

@@ -1,0 +1,248 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "idle_inhibitor", "pulseaudio", "backlight", "network", "custom/updates"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["custom/media", "cpu", "memory", "temperature", "battery", "custom/notification", "tray", "clock", "custom/power"],
+
+    // Workspaces - Enable scroll for better navigation
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "on-click": "activate",
+        "format": "{name}",
+        "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    // Show keybind submaps
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">  {}</span>",
+        "tooltip": false
+    },
+
+    // Window title with better max length
+    "hyprland/window": {
+        "max-length": 60,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌎 $1",
+            "(.*) - Visual Studio Code": "  $1"
+        }
+    },
+
+    // Idle inhibitor
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true,
+        "tooltip-format-activated": "Idle inhibitor active",
+        "tooltip-format-deactivated": "Idle inhibitor inactive"
+    },
+
+    // System tray
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    },
+
+    // Clock with multiple formats
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#{{ hyprland_palette.cal_months }}'><b>{}</b></span>",
+                "days": "<span color='#{{ hyprland_palette.cal_days }}'><b>{}</b></span>",
+                "weeks": "<span color='#{{ hyprland_palette.cal_weeks }}'><b>W{}</b></span>",
+                "weekdays": "<span color='#{{ hyprland_palette.cal_weekdays }}'><b>{}</b></span>",
+                "today": "<span color='#{{ hyprland_palette.cal_today }}'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    // CPU with interactive tooltip
+    "cpu": {
+        "interval": 2,
+        "format": "{usage}% ",
+        "format-alt": "{avg_frequency} GHz ",
+        "tooltip": true,
+        "on-click": "alacritty -e htop"
+    },
+
+    // Memory with better formatting
+    "memory": {
+        "interval": 2,
+        "format": "{percentage}% ",
+        "format-alt": "{used:0.1f}G/{total:0.1f}G ",
+        "tooltip": true,
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+        "on-click": "alacritty -e htop"
+    },
+
+    // Temperature with tooltip
+    "temperature": {
+        "interval": 2,
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-critical": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true,
+        "tooltip-format": "Temperature: {temperatureC}°C\nCritical: 80°C"
+    },
+
+    // Backlight with scroll control
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": true,
+        "tooltip-format": "Brightness: {percent}%",
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    // Battery with detailed info
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": true,
+        "tooltip-format": "{timeTo}\nCapacity: {capacity}%\nPower: {power}W"
+    },
+
+    // Network with auto-detection
+    "network": {
+        // Remove hardcoded interface to auto-detect
+        "interval": 5,
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}/{cidr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+
+    // Pulseaudio with scroll control
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip": true,
+        "tooltip-format": "{desc}\nVolume: {volume}%",
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+
+    // Media player controls
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+
+    // System updates checker
+    "custom/updates": {
+        "format": "{} ",
+        "interval": 3600,
+        "exec": "checkupdates | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "alacritty -e sudo zypper dup",
+        "tooltip": true,
+        "tooltip-format": "{} updates available"
+    },
+
+    // Notification center (swaync)
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    // Power menu
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout -p layer-shell"
+    }
+}

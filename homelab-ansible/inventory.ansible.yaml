@@ -3,19 +3,18 @@ myservers:
     fedoramac:
       ansible_host: 192.168.1.125
       ansible_user: lucassimpson
-      ansible_password: JsRules44$$
+
     fedoralenovo:
       ansible_host: 192.168.1.123
       ansible_user: lucassimpson
-      ansible_password: JsRules44$$
+
     raspberrypi:
       ansible_host: 192.168.1.119
       ansible_user: lucas
-      ansible_password: lucas
 
-# tailscale:
-  # hosts: 
-    
-
-
-
+tailscale:
+  hosts:
+    fedora_tailscale:
+      ansible_host: 100.65.51.13
+      ansible_user: lucassimpson
+      ansible_password: RustRules44$$

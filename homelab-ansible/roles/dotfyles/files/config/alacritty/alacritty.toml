@@ -1,0 +1,75 @@
+# ~/.config/alacritty/alacritty.toml
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+# Prime feel: tight, clean, not cramped
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+decorations = "Full"
+startup_mode = "Windowed"
+opacity = 0.96
+
+# Helps with weird VM window geometry sometimes
+position = { x = 60, y = 60 }
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+# If you install a Nerd Font, set it here (see section below)
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+
+# VM HiDPI friendly; tweak 12–16 to taste
+size = 14.0
+
+# Makes text look crisp
+builtin_box_drawing = true
+
+offset = { x = 0, y = 1 }
+glyph_offset = { x = 0, y = 0 }
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+unfocused_hollow = true
+
+[mouse]
+hide_when_typing = true
+
+# Prime trick: faster copy/paste and font scaling
+[keyboard]
+bindings = [
+  { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+  { key = "Minus",  mods = "Control", action = "DecreaseFontSize" },
+  { key = "Key0",   mods = "Control", action = "ResetFontSize" },
+]
+
+# --- Colors: Tokyonight Storm-ish (clean + modern) ---
+[colors.primary]
+background = "0x1a1b26"
+foreground = "0xc0caf5"
+
+[colors.normal]
+black   = "0x15161e"
+red     = "0xf7768e"
+green   = "0x9ece6a"
+yellow  = "0xe0af68"
+blue    = "0x7aa2f7"
+magenta = "0xbb9af7"
+cyan    = "0x7dcfff"
+white   = "0xa9b1d6"
+
+[colors.bright]
+black   = "0x414868"
+red     = "0xf7768e"
+green   = "0x9ece6a"
+yellow  = "0xe0af68"
+blue    = "0x7aa2f7"
+magenta = "0xbb9af7"
+cyan    = "0x7dcfff"
+white   = "0xc0caf5"
+

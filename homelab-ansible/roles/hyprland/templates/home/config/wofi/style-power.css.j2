@@ -1,0 +1,21 @@
+{% from 'macros/colors.j2' import rgba %}
+{{ ansible_managed | comment('cblock') }}
+@import 'style.css';
+
+#input {
+    border: 2px solid #{{ hyprland_palette.red }};
+}
+
+#input:focus {
+    border: 2px solid #{{ hyprland_palette.red }};
+    box-shadow: 0 0 10px {{ rgba(hyprland_palette.red, 0.3) }};
+}
+
+#entry:selected {
+    background-color: {{ rgba(hyprland_palette.red, 0.3) }};
+    border-left: 3px solid #{{ hyprland_palette.red }};
+}
+
+window {
+    border: 2px solid #{{ hyprland_palette.red }};
+}

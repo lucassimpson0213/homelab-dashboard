@@ -1,0 +1,134 @@
+{% from 'macros/colors.j2' import rgba %}
+{{ ansible_managed | comment('cblock') }}
+/* {{ hyprland_palette.name }} Color Palette */
+
+ * {
+    font-family: "RobotoMonoNerdFontPropo", "sans-serif";
+    font-size: 14px;
+}
+
+window {
+    margin: 0px;
+    border: 2px solid #{{ hyprland_palette.accent_primary }};
+    border-radius: 15px;
+    background-color: #{{ hyprland_palette.bg_darkest }};
+    opacity: 0.95;
+}
+
+#input {
+    margin: 10px;
+    padding: 10px 15px;
+    border: 2px solid #{{ hyprland_palette.bg_dark }};
+    border-radius: 10px;
+    color: #{{ hyprland_palette.fg_bright }};
+    background-color: #{{ hyprland_palette.bg_dark }};
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#input:focus {
+    border: 2px solid #{{ hyprland_palette.accent_primary }};
+    background-color: #{{ hyprland_palette.bg_medium }};
+    box-shadow: 0 0 10px {{ rgba(hyprland_palette.accent_primary, 0.3) }};
+}
+
+#input image {
+    color: #{{ hyprland_palette.accent_primary }};
+}
+
+#inner-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+#outer-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+#text {
+    margin: 5px;
+    padding: 5px;
+    color: #{{ hyprland_palette.fg_dim }};
+}
+
+#text:selected {
+    color: #{{ hyprland_palette.fg_bright }};
+    font-weight: bold;
+}
+
+#entry {
+    margin: 2px 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+#entry:hover {
+    background-color: {{ rgba(hyprland_palette.accent_secondary, 0.2) }};
+}
+
+#entry:selected {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.3) }};
+    border-left: 3px solid #{{ hyprland_palette.accent_primary }};
+}
+
+#entry:selected #text {
+    color: #{{ hyprland_palette.fg_bright }};
+    font-weight: bold;
+}
+
+/* Icon styling */
+#img {
+    margin-right: 10px;
+    padding: 2px;
+}
+
+/* Scrollbar styling */
+scrollbar {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.3) }};
+    border-radius: 10px;
+    min-width: 8px;
+}
+
+scrollbar slider:hover {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.5) }};
+}
+
+scrollbar trough {
+    background-color: {{ rgba(hyprland_palette.bg_dark, 0.3) }};
+    border-radius: 10px;
+}
+
+/* Mode-specific styling */
+#mode {
+    margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.2) }};
+    color: #{{ hyprland_palette.accent_primary }};
+    font-weight: bold;
+}
+
+/* No results message */
+#no-results {
+    padding: 20px;
+    color: #{{ hyprland_palette.red }};
+    font-style: italic;
+}

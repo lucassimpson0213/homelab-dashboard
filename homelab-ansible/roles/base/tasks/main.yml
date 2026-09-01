@@ -2,16 +2,20 @@
 ---
 # tasks file for base
 - name: Install base packages
-  ansible.builtin.package:
+  ansible.builtin.dnf:
     name:
       - git
       - curl
-      - nvim
+      - neovim
       - tailscale
-      - fd 
+      - fd-find
       - gh
       - npm
+      - kitty
+      - fish
     state: present
+
+
 
 - name: configure user.email
   community.general.git_config:
@@ -25,22 +29,20 @@
     value: "Lucas Simpson"
 - name: Create ssh key directory
   ansible.builtin.file:
-    path: {{github_ssh_dir}}
+    path: "/home/lucassimpson/.ssh"
     state: directory 
     mode: '0700'
+  become: false
 
 - name: Install GitHub private key
   ansible.builtin.copy:
-    content: "{{ github_ssh_private_key }}"
-    dest: "{{ github_ssh_dir }}/id_ed25519"
+    content: "{{ private_key_github }}"
+    dest: "/home/lucassimpson/.ssh/id_ed25519"
     mode: "0600"
   no_log: true
+  become: false
 
 
-- name: Install ansible language server
-  community.general.npm: 
-    name: @ansible/ansible-language-server
-    global: true
     
 
 

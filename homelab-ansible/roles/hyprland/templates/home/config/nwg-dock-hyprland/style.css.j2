@@ -1,0 +1,68 @@
+{% from 'macros/colors.j2' import rgba %}
+{{ ansible_managed | comment('cblock') }}
+/* {{ hyprland_palette.name }}-themed nwg-dock configuration */
+
+window {
+    background: #{{ hyprland_palette.bg_darkest }};
+    border-radius: 20px;
+    border-style: none
+}
+
+#box {
+    /* Define attributes of the box surrounding icons here */
+    padding: 5px;
+    border-style: none
+}
+
+#active {
+    /* This is to underline the button representing the currently active window */
+    border-bottom: solid 2px;
+    border-color: #{{ hyprland_palette.accent_primary }};
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.15) }};
+    border-radius: 12px
+}
+
+button, image {
+    background: none;
+    border-style: none;
+    box-shadow: none;
+    color: #{{ hyprland_palette.fg_dim }}
+}
+
+button {
+    padding: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #{{ hyprland_palette.fg_bright }};
+    font-size: 12px;
+    transition: all 0.2s ease-in-out
+}
+
+button:hover {
+    background-color: {{ rgba(hyprland_palette.accent_secondary, 0.25) }};
+    border-radius: 15px
+}
+
+button:focus {
+    box-shadow: none;
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.2) }}
+}
+
+/* Optional: Add styling for pinned applications */
+#pinned {
+    color: #{{ hyprland_palette.accent_secondary }}
+}
+
+
+/* Optional: Add styling for urgent windows */
+#urgent {
+    color: #{{ hyprland_palette.red }};
+    animation: urgent-blink 1s ease-in-out infinite
+}
+
+/* This isn't working, need to troubleshoot
+@keyframes urgent-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+*/

@@ -1,0 +1,49 @@
+---
+- name: Verify
+  hosts: molecule
+  gather_facts: false
+  tasks:
+    - name: Stat the rendered user dotfiles
+      ansible.builtin.stat:
+        path: "{{ item }}"
+      loop:
+        - /home/hyprtest/.config/hypr/hyprland.conf
+        - /home/hyprtest/.config/hypr/hyprlock.conf
+        - /home/hyprtest/.config/waybar/style.css
+        - /home/hyprtest/.config/waybar/config
+        - /home/hyprtest/.config/alacritty/alacritty.toml
+        - /home/hyprtest/.config/wofi/style.css
+      register: hyprland_dotfiles
+
+    - name: Assert dotfiles were rendered
+      ansible.builtin.assert:
+        that:
+          - item.stat.exists
+          - item.stat.isreg
+          - item.stat.pw_name == 'hyprtest'
+      loop: "{{ hyprland_dotfiles.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Stat the SDDM theme config
+      ansible.builtin.stat:
+        path: /etc/sddm.conf.d/10-theme.conf
+      register: hyprland_sddm_theme
+
+    - name: Assert SDDM theme config was deployed
+      ansible.builtin.assert:
+        that:
+          - hyprland_sddm_theme.stat.exists
+          - hyprland_sddm_theme.stat.isreg
+
+    - name: Read the rendered hyprland.conf
+      ansible.builtin.slurp:
+        src: /home/hyprtest/.config/hypr/hyprland.conf
+      register: hyprland_conf_contents
+
+    - name: Assert hyprland.conf was rendered with the Nord palette
+      vars:
+        rendered: "{{ hyprland_conf_contents.content | b64decode }}"
+      ansible.builtin.assert:
+        that:
+          - "'88c0d0' in rendered or '2e3440' in rendered"

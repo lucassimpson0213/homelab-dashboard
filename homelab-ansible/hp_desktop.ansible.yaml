@@ -1,11 +1,30 @@
 ---
-- name: Configure workstation
-  hosts: fedoralenovo
+- name: Configure Fedora workstation
+  hosts: fedora_tailscale
   become: true
 
   vars:
     ops_root: /srv/ops
     docker_repo_file: /etc/yum.repos.d/docker-ce.repo
 
+    hyprland_user: lucassimpson
+
+    dotfiles_user: lucassimpson
+    dotfiles_home: /home/lucassimpson
+  vars_files:
+    - vault.yml
+  roles:
+    - role: base
+    - role: hyprland
+
+    - role: dotfyles
+
   tasks:
-    
+    # Keep only machine-specific tasks here.
+    #
+    # Example
+    # - name: Ensure ops directory exists
+    #   ansible.builtin.file:
+    #     path: "{{ ops_root }}"
+    #     state: directory
+    #     mode: "0755"

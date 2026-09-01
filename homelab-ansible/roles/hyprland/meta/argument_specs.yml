@@ -1,0 +1,30 @@
+---
+argument_specs:
+  main:
+    short_description: Install and configure the Hyprland tiling Wayland compositor on Fedora.
+    description:
+      - Enables the lionheartp/Hyprland COPR repository and installs Hyprland together with a
+        curated set of supporting tools (SDDM, Waybar, Alacritty, Wofi, nwg-drawer, etc.).
+      - Renders themed user dotfiles under the target user's ~/.config/ tree and deploys
+        SDDM theme/configuration files at the system level.
+    author:
+      - Dan Wallace
+    options:
+      hyprland_user:
+        description:
+          - Local user account that owns the rendered Hyprland dotfiles under /home/<user>/.config/.
+            Defaults to the value of $USER on the controller, which is usually not what
+            you want when running against a remote host — override explicitly.
+        type: str
+        required: false
+      hyprland_theme:
+        description:
+          - Name of the theme palette to apply. Must match a file under vars/themes/<theme>.yml
+            shipped with the role.
+        type: str
+        required: false
+        default: nord
+        choices:
+          - monochrome
+          - nord
+          - tokyo-night

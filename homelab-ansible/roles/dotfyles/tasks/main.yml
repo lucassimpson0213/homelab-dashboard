@@ -1,3 +1,45 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# tasks file for dotfyles
+- name: Ensure dotfiles user exists
+  ansible.builtin.getent:
+    database: passwd
+    key: "{{ dotfiles_user }}"
+
+- name: Derive dotfiles home from passwd database when not overridden
+  ansible.builtin.set_fact:
+    dotfiles_effective_home: >-
+      {{ ansible_facts.getent_passwd[dotfiles_user][4]
+         if dotfiles_home | default('') | length == 0
+         else dotfiles_home }}
+
+- name: Ensure .config exists
+  ansible.builtin.file:
+    path: "{{ dotfiles_effective_home }}/.config"
+    state: directory
+    owner: "{{ dotfiles_user }}"
+    group: "{{ dotfiles_user }}"
+    mode: "0755"
+  become: true
+
+- name: Install home dotfiles
+  ansible.builtin.copy:
+    src: "home/{{ item }}"
+    dest: "{{ dotfiles_effective_home }}/{{ item }}"
+    owner: "{{ dotfiles_user }}"
+    group: "{{ dotfiles_user }}"
+    mode: "0644"
+  become: true
+  loop: "{{ dotfiles_home_files }}"
+
+- name: Install config directories
+  ansible.builtin.copy:
+    src: "config/{{ item }}/"
+    dest: "{{ dotfiles_effective_home }}/.config/{{ item }}/"
+    owner: "{{ dotfiles_user }}"
+    group: "{{ dotfiles_user }}"
+    mode: preserve
+    directory_mode: "0755"
+  become: true
+  loop: "{{ dotfiles_config_dirs }}"
+
+
+

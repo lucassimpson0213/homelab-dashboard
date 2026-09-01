@@ -1,0 +1,121 @@
+{% from 'macros/colors.j2' import rgba %}
+{{ ansible_managed | comment('cblock') }}
+/* {{ hyprland_palette.name }} Color Palette */
+
+ window {
+    background-color: {{ rgba(hyprland_palette.bg_darkest, 0.95) }};
+    color: #{{ hyprland_palette.fg_dim }}
+}
+
+/* Search entry */
+entry {
+    background-color: {{ rgba(hyprland_palette.bg_dark, 0.6) }};
+    color: #{{ hyprland_palette.fg_bright }};
+    border: 1px solid {{ rgba(hyprland_palette.accent_primary, 0.3) }};
+    border-radius: 5px;
+    padding: 5px;
+    caret-color: #{{ hyprland_palette.accent_primary }}
+}
+
+entry:focus {
+    background-color: {{ rgba(hyprland_palette.bg_dark, 0.8) }};
+    border: 1px solid #{{ hyprland_palette.accent_primary }};
+    box-shadow: 0 0 5px {{ rgba(hyprland_palette.accent_primary, 0.3) }}
+}
+
+button, image {
+    background: none;
+    border: none;
+    color: #{{ hyprland_palette.fg_dim }}
+}
+
+button:hover {
+    background-color: {{ rgba(hyprland_palette.accent_secondary, 0.2) }};
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out
+}
+
+button:active {
+    background-color: {{ rgba(hyprland_palette.accent_tertiary, 0.3) }}
+}
+
+/* Category buttons */
+#category-button {
+    margin: 0 10px 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px
+}
+
+#category-button:hover {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.2) }}
+}
+
+#category-button:checked {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.3) }};
+    border-bottom: 2px solid #{{ hyprland_palette.accent_primary }}
+}
+
+/* Pinned applications section */
+#pinned-box {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #{{ hyprland_palette.accent_primary }}
+}
+
+/* Files section */
+#files-box {
+    padding: 5px;
+    border: 1px dotted #{{ hyprland_palette.accent_secondary }};
+    border-radius: 15px;
+    background-color: {{ rgba(hyprland_palette.bg_dark, 0.3) }}
+}
+
+/* Math operation result label */
+#math-label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #{{ hyprland_palette.accent_primary }};
+    padding: 5px;
+    background-color: {{ rgba(hyprland_palette.bg_dark, 0.5) }};
+    border-radius: 5px;
+    border-left: 3px solid #{{ hyprland_palette.accent_primary }}
+}
+
+/* Scrollbar theming */
+scrollbar {
+    background-color: {{ rgba(hyprland_palette.bg_darkest, 0.5) }}
+}
+
+scrollbar slider {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.3) }};
+    border-radius: 10px
+}
+
+scrollbar slider:hover {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.5) }}
+}
+
+/* Selected item */
+*:selected {
+    background-color: {{ rgba(hyprland_palette.accent_primary, 0.2) }};
+    border-radius: 5px
+}
+
+/* Separators */
+separator {
+    background-color: {{ rgba(hyprland_palette.accent_secondary, 0.3) }};
+    min-height: 1px
+}
+
+/* Labels */
+label {
+    color: #{{ hyprland_palette.fg_dim }}
+}
+
+/* Tooltips */
+tooltip {
+    background-color: {{ rgba(hyprland_palette.bg_dark, 0.95) }};
+    color: #{{ hyprland_palette.fg_bright }};
+    border: 1px solid #{{ hyprland_palette.accent_primary }};
+    border-radius: 5px;
+    padding: 5px
+}
