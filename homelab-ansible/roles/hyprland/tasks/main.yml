@@ -38,3 +38,19 @@
     version: intelmac
     accept_newhostkey: true
 
+- name: Enable google chromes rpm repo
+  ansible.builtin.dnf: 
+    name: fedora-workstation-repositories 
+  become: true
+
+- name: Ensure the google chrome repository is enabled
+  community.general.dnf_config_manager:
+    name: google-chrome
+    state: enabled
+  become: true
+
+- name: install google chrome stable
+  ansible.builtin.dnf: 
+    name: google-chrome-stable
+    state: present
+

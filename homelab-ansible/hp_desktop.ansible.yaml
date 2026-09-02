@@ -16,7 +16,7 @@
   roles:
     - role: base
     - role: hyprland
-
+    - role: dev-tools
     - role: dotfyles
 
   tasks:
