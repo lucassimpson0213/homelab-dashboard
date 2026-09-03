@@ -17,6 +17,7 @@
       - hyprlock
       - hyprpolkitagent
       - sddm
+      - mako 
       - waybar
       - foot
       - wl-clipboard
