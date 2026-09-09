@@ -13,6 +13,7 @@
       - npm
       - kitty
       - fish
+      - ansible
     state: present
 
 

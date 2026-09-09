@@ -1,6 +1,6 @@
 ---
 - name: Configure Fedora workstation
-  hosts: fedora_tailscale
+  hosts: localhost
   become: true
 
   vars:

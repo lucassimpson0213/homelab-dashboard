@@ -36,6 +36,7 @@
     single_branch: yes
     version: intelmac
     accept_newhostkey: true
+  become: false
 
 - name: Enable google chromes rpm repo
   ansible.builtin.dnf: 
