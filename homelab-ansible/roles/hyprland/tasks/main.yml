@@ -26,6 +26,7 @@
       - pamixer
       - pavucontrol
       - waypaper
+      - noctalia
     state: present
   become: true
 
