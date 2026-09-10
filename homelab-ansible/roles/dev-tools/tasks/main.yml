@@ -24,3 +24,9 @@
   tags:
     - rust
   become: false
+
+ - name: Install Ansible Language Server globally
+   community.general.npm:
+    name: "@ansible/ansible-language-server"
+    global: true
+
