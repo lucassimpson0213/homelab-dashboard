@@ -27,6 +27,7 @@
       - pavucontrol
       - waypaper
       - noctalia
+      - kde-connect
     state: present
   become: true
 
