@@ -28,6 +28,7 @@
       - waypaper
       - noctalia
       - kde-connect
+      - qcalculate
     state: present
   become: true
 
