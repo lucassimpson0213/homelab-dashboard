@@ -27,7 +27,8 @@
       - pavucontrol
       - waypaper
       - noctalia
-      - qalculate
+      - kde-connect
+      - qcalculate
     state: present
   become: true
 
