@@ -27,6 +27,7 @@
       - pavucontrol
       - waypaper
       - noctalia
+      - qalculate
     state: present
   become: true
 
