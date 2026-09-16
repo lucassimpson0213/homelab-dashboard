@@ -1,0 +1,14 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for backups
+
+- name: Run duplicati
+      docker_container:
+        name: backup-container
+        image: duplicati/duplicati:2.4.0.0
+        state: started
+        ports:
+          - "8200:8200"
+        
+          
+  
