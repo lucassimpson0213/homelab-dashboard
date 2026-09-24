@@ -1,5 +1,5 @@
 - name: intel mac services running
-  hosts: localhost
+  hosts: fedoramac
   become: true
   tasks:
     - name: delete all versions of docker or podman
@@ -32,7 +32,7 @@
           - docker-buildx-plugin
           - docker-compose-plugin
         state: present
-
+    
     - name: Enable and start Docker
       ansible.builtin.systemd_service:
         name: docker
@@ -48,3 +48,8 @@
       community.docker.docker_compose_v2:
         project_src: /home/lucassimpson/DEV/homelab-dashboard/backend
         state: present
+    - name: Ensure Duplicati is enabled and running
+      ansible.builtin.systemd_service:
+        name: duplicati
+        state: started
+        enabled: true

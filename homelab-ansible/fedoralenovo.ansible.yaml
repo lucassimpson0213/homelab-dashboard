@@ -62,7 +62,7 @@
             - job_name: prometheus
               static_configs:
                 - targets:
-                    - prometheus:9093
+                    - prometheus:9090
 
             - job_name: lenovo
               static_configs:
@@ -126,7 +126,7 @@
         networks:
           - name: homelab-ops
         published_ports:
-          - "9093:9093"
+          - "9090:9090"
         volumes:
           - "{{ ops_root }}/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro,Z"
           - "prometheus-data:/prometheus"
@@ -167,5 +167,5 @@
       loop:
         - "3000"
         - "3001"
-        - "9093"
+        - "9090"
         - "9100"

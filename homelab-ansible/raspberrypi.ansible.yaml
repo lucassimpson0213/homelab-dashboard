@@ -50,6 +50,8 @@
         name: minio
         image: quay.io/minio/aistor/minio:latest
         state: started
+        restart_policy: unless-stopped
+
         pull: always
         published_ports:
           - 9000:9000
@@ -72,7 +74,11 @@
       ansible.builtin.systemd_service:
         state: started
         name: cockpit
-
+    - name: Ensure Duplicati is enabled and running
+      ansible.builtin.systemd_service:
+          name: duplicati
+          state: started
+          enabled: true
     - name: Verify port 53 is open
       ansible.builtin.wait_for:
         port: 53          # Port to check
