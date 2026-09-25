@@ -14,9 +14,3 @@ myservers:
       ansible_user: lucas
       ansible_password: lucas
 
-tailscale:
-  hosts:
-    fedora_tailscale:
-      ansible_host: 100.65.51.13
-      ansible_user: lucassimpson
-      ansible_password: RustRules44$$

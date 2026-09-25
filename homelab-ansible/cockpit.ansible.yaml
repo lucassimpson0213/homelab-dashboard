@@ -1,0 +1,9 @@
+- hosts: all
+  become: true
+
+  roles:
+    - role: fedora.linux_system_roles.cockpit
+      vars:
+        cockpit_port: 9095
+        cockpit_manage_firewall: true
+        cockpit_manage_selinux: true
