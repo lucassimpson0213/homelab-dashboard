@@ -38,7 +38,7 @@ async function handleSubmit(event, form, input) {
             linkList.innerText = "There are no elements";
         }
         if (postlinkresult.error) {
-            console.error();
+            console.error("There has been an error calling the post link endpoint");
         }
         let currentList = document.querySelector("ul");
         if (currentList == null) {
