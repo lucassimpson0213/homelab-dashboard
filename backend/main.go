@@ -13,7 +13,7 @@ import (
 )
 
 func cors(w http.ResponseWriter) {
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080,http://127.0.0.1")
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:8080,http://127.0.0.1,http://100.65.51.13")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 	w.Header().Set("x-custom-header", "Hello")
@@ -36,8 +36,9 @@ func main() {
 	http.Handle("/",
 		http.StripPrefix("/dist/", static),
 	)
-
-	log.Fatal(http.ListenAndServe("localhost:8080", nil))
+	
+	//listen on all interfaces, depending on if you wanna do local or cross machine dev
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func postLinkHandler(rw http.ResponseWriter, r *http.Request) {
