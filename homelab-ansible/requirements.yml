@@ -1,4 +1,4 @@
 ---
 roles:
   - name: stefangweichinger.ansible_rclone
-  - name: umanit.prometheus_exporter_exporter
+  - name: prometheus.prometheus.node_exporter
