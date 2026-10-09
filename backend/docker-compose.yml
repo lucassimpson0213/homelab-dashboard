@@ -77,6 +77,15 @@ services:
       retries: 3
       start_period: 20s
     restart: unless-stopped
+  myapp:
+    image: duplicati/duplicati:latest
+    ports:
+      - "8200:8200"
+    volumes:
+      - ./data:/data
+    environment:
+      # SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+      DUPLICATI__WEBSERVICE_PASSWORD: "JsRules44"
 volumes:
   pgdata:
   portainer_data:
