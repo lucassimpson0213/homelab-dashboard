@@ -64,11 +64,14 @@
                 - targets:
                     - prometheus:9090
 
-            - job_name: lenovo
+            - job_name: nodes
               static_configs:
                 - targets:
                     - node-exporter:9100
-
+                    - 100.95.142.72:9100
+                    - 100.111.153.92:9100
+# This routes from docker network to host network, and it goes to the default gateway 
+# full article https://docs.docker.com/engine/network/drivers/bridge/?utm_source=chatgpt.com
     - name: Provision Prometheus datasource in Grafana
       ansible.builtin.copy:
         dest: "{{ ops_root }}/grafana/provisioning/datasources/prometheus.yml"

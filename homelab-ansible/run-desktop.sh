@@ -5,7 +5,7 @@ IFS=$'\n\t'
 main() {
     ansible-playbook \
   -i inventory.ansible.yaml \
-  hp_desktop.ansible.yaml \
+  prometheus.ansible.yaml \
   --ask-become-pass \
   --ask-vault-pass  
 }

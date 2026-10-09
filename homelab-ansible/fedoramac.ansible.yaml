@@ -53,3 +53,4 @@
         name: duplicati
         state: started
         enabled: true
+    - name: ensure homelab dhasboard is running
