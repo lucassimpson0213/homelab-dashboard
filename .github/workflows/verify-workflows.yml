@@ -20,11 +20,8 @@ jobs:
       
       - name: copy files over ssh
         env: 
-          USER_IDENTITY: ${{secrets.username}}
           USER_PASSWORD: ${{ secrets.password}}
         run: | 
-          ssh lucassimpson@hpdesktop
-          echo "hello"
-
-        
+          tailscale ssh lucassimpson@hpdesktop
+          echo "ok automated"
 
