@@ -1,7 +1,6 @@
 name: connect to tailscale and check backups
 run-name: Check Backups
-on: workflow_dispatch
-# technically this should only be on pull request approved and do it from main
+on: push
 
 
 jobs: 
@@ -20,11 +19,10 @@ jobs:
       
       - name: copy files over ssh
         env: 
-          USER_IDENTITY: ${{secrets.username}}
           USER_PASSWORD: ${{ secrets.password}}
         run: | 
-          ssh lucassimpson@hpdesktop
-          echo "hello"
+          tailscale ssh lucassimpson@hpdesktop
+          echo "ok automated"
 
         
 
