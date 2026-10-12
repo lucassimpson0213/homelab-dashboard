@@ -1,0 +1,26 @@
+
+
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS=100.65.51.13:3000,192.168.88.248:3000,100.95.142.72:3000,localhost,100.88.86.123:3000, 100.114.137.127:3000
+      - TZ=America/Chicago
+    restart: unless-stopped
+  myapp:
+    image: duplicati/duplicati:latest
+    ports:
+      - "8200:8200"
+    volumes:
+      - /data:/data
+      - /home:/home
+      - /srv:/srv
+    environment:
+      # SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
+      DUPLICATI__WEBSERVICE_PASSWORD: "JsRules44"
