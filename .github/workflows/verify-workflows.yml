@@ -5,7 +5,7 @@ on: push
 
 jobs: 
 
-   AuthToTailscale:
+   DeployDockerCompose:
     runs-on: ubuntu-latest
     steps: 
       - name: Tailscale
@@ -14,4 +14,16 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      
+      - name: copy files over ssh
+        env: 
+          USER_IDENTITY: ${{secrets.username}}
+          USER_PASSWORD: ${{ secrets.password}}
+        run: | 
+          sudo apt-get update 
+          sudo apt install -y sshpass
+
+        
 
