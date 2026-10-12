@@ -1,6 +1,7 @@
 name: connect to tailscale and check backups
 run-name: Check Backups
 on: push
+# technically this should only be on pull request approved and do it from main
 
 
 jobs: 
