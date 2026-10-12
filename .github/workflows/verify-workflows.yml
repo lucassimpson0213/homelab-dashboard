@@ -1,6 +1,7 @@
 name: connect to tailscale and check backups
 run-name: Check Backups
-on: push
+on: workflow_dispatch
+# technically this should only be on pull request approved and do it from main
 
 
 jobs: 
@@ -23,6 +24,4 @@ jobs:
         run: | 
           tailscale ssh lucassimpson@hpdesktop
           echo "ok automated"
-
-        
 
