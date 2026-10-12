@@ -1,6 +1,6 @@
 name: connect to tailscale and check backups
 run-name: Check Backups
-on: push
+on: workflow_dispatch
 # technically this should only be on pull request approved and do it from main
 
 
@@ -23,8 +23,8 @@ jobs:
           USER_IDENTITY: ${{secrets.username}}
           USER_PASSWORD: ${{ secrets.password}}
         run: | 
-          sudo apt-get update 
-          sudo apt install -y sshpass
+          ssh lucassimpson@hpdesktop
+          echo "hello"
 
         
 
