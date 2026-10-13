@@ -86,6 +86,7 @@ services:
     environment:
       # SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
       DUPLICATI__WEBSERVICE_PASSWORD: "JsRules44"
+      DUPLICATI__WEBSERVICE_INTERFACE: any
 volumes:
   pgdata:
   portainer_data:
