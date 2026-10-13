@@ -1,0 +1,184 @@
+
+# ==========================================
+# NETWORK
+# ==========================================
+
+- Network:
+    - Pi-hole:
+        href: http://100.95.142.72/admin
+        ping: http://100.95.142.72/admin
+        description: DNS and network filtering
+        icon: pi-hole.png
+
+    - MikroTik:
+        href: http://192.168.88.1
+        ping: http://192.168.88.1
+        description: Router and network management
+        icon: mikrotik.png
+
+    - Tailscale:
+        href: https://login.tailscale.com/admin/machines
+        description: Homelab mesh network
+        icon: tailscale.png
+
+
+# ==========================================
+# HOSTS
+# ==========================================
+
+- Hosts:
+    - Hawk / Raspberry Pi:
+        icon: cockpit.png
+        href: https://100.95.142.72:9095
+        ping: https://100.95.142.72:9095
+        description: Cockpit host management
+
+    - HP Desktop:
+        icon: cockpit.png
+        href: https://100.65.51.13:9095
+        ping: https://100.65.51.13:9095
+        description: Cockpit host management
+
+    - Fedora Lenovo:
+        icon: cockpit.png
+        href: https://100.67.62.26:9095
+        ping: https://100.67.62.26:9095
+        description: Cockpit host management
+
+    - Fedora Mac:
+        icon: cockpit.png
+        href: https://100.111.153.92:9095
+        ping: https://100.111.153.92:9095
+        description: Cockpit host management
+
+
+# ==========================================
+# INFRASTRUCTURE MANAGEMENT
+# ==========================================
+
+- Infrastructure Management:
+    - Portainer:
+        href: https://100.111.153.92:9443
+        ping: https://100.111.153.92:9443
+        description: Docker management
+        icon: portainer.png
+
+
+# ==========================================
+# OBSERVABILITY
+# ==========================================
+
+- Observability:
+    - Grafana:
+        href: http://100.67.62.26:3000
+        ping: http://100.67.62.26:3000
+        description: Homelab dashboards
+        icon: grafana.png
+
+    - Prometheus:
+        href: http://100.67.62.26:9090
+        ping: http://100.67.62.26:9090
+        description: Metrics and monitoring
+        icon: prometheus.png
+
+
+# ==========================================
+# AUTOMATION
+# ==========================================
+
+- Automation:
+    - GithubActions:
+        href: https://github.com/lucassimpson0213/homelab-dashboard/actions
+        description: Homelab GitHub Actions
+        icon: github.png
+
+    - Semaphore:
+        href: http://100.111.153.92:3000
+        ping: http://100.111.153.92:3000
+        description: Ansible automation
+        icon: semaphore.png
+
+
+# ==========================================
+# BACKUPS & STORAGE
+# ==========================================
+
+- Backups & Storage:
+    - Duplicati:
+        href: https://app.duplicati.com/app/machines
+        description: Centralized backup management
+        icon: duplicati.png
+
+    - Fedora Duplicati:
+        href: http://100.111.153.92:8200
+        description: Duplicati on Fedora Mac
+        icon: duplicati.png
+
+    - Google Drive:
+        href: https://drive.google.com/drive/my-drive
+        description: Duplicati backups
+        icon: google-drive.png
+
+    - Databases:
+        href: http://100.111.153.92:4005
+        description: Database backups
+        icon: postgres.png
+
+    - MinIO:
+        href: http://100.95.142.72:9001
+        ping: http://100.95.142.72:9001
+        description: Object storage
+        icon: minio.png
+
+
+# ==========================================
+# DEVELOPMENT & DOCUMENTATION
+# ==========================================
+
+- Development & Documentation:
+    - GitHub:
+        href: https://github.com/lucassimpson0213
+        description: Homelab source and configuration
+        icon: github.png
+
+    - GitHub Wiki:
+        href: https://github.com/lucassimpson0213/homelab-dashboard/wiki
+        description: Homelab documentation and runbooks
+        icon: github.png
+
+    - Git Branching:
+        href: https://learngitbranching.js.org/?locale=en_US
+        description: Git branching training
+        icon: git.png
+
+
+# ==========================================
+# PERSONAL & PLANNING
+# ==========================================
+
+- Personal & Planning:
+    - TickTick:
+        href: https://ticktick.com/webapp/#p/6ac86502a427d12b6ac699af/tasks
+        description: Tasks and personal planning
+        icon: ticktick.png
+
+    - Project Management:
+        href: https://linear.app/lucas-simpson/team/LUC/active
+        description: Project management
+        icon: linear.png
+
+    - Monarch:
+        href: https://app.monarch.com/dashboard
+        description: Personal budgeting
+        icon: monarch.png
+
+    - Gmail:
+        href: https://mail.google.com/mail/u/0/
+        description: Personal email
+        icon: gmail.png
+
+    - Bitwarden:
+        href: https://vault.bitwarden.com/#/vault
+        description: Password and secrets management
+        icon: bitwarden.png
+

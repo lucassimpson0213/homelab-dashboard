@@ -1,11 +1,12 @@
 name: connect to tailscale and check backups
 run-name: Check Backups
-on: push
+on: workflow_dispatch
+# technically this should only be on pull request approved and do it from main
 
 
 jobs: 
 
-   AuthToTailscale:
+   DeployDockerCompose:
     runs-on: ubuntu-latest
     steps: 
       - name: Tailscale
@@ -14,4 +15,13 @@ jobs:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      
+      - name: copy files over ssh
+        env: 
+          USER_PASSWORD: ${{ secrets.password}}
+        run: | 
+          tailscale ssh lucassimpson@hpdesktop
+          echo "ok automated"
 
