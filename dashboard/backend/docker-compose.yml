@@ -83,6 +83,7 @@ services:
       - "8200:8200"
     volumes:
       - ./data:/data
+      - ./home:/home
     environment:
       # SETTINGS_ENCRYPTION_KEY: "<real encryption key>"
       DUPLICATI__WEBSERVICE_PASSWORD: "JsRules44"
