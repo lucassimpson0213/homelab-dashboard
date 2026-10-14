@@ -1,0 +1,358 @@
+[2026-02-25T00:21:40.477Z] info: kubernetes.yaml was copied to the config folder
+[2026-02-25T00:22:49.779Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.628Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.644Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.655Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.683Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.695Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.704Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.713Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.723Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.740Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.761Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:50.773Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:54.283Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:55.288Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:58.281Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:22:58.302Z] error: Host validation failed for: 192.168.12.152:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:24:09.299Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:53.889Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.096Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.105Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.113Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.126Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.139Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.155Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.164Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.171Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.178Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.187Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:28:54.196Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:00.720Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:00.737Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.304Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.320Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.376Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.387Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.401Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.415Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.424Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.432Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.444Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.453Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.463Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.472Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.484Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:01.500Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.096Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.653Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.672Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.704Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.711Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.721Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.729Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.739Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.750Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.759Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.766Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.772Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.779Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.798Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:02.821Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:03.393Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:03.942Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:03.963Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.005Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.012Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.019Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.025Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.037Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.048Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.056Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.062Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.071Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.080Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.092Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:04.120Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:05.448Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:16.352Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:16.367Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:16.391Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:17.298Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.731Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.767Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.786Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.825Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.836Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.844Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.852Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.859Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.870Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.879Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.886Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.897Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.907Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.915Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:23.937Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:29:27.081Z] error: Host validation failed for: raspberrypi.local:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-02-25T00:32:49.732Z] info: docker.yaml was copied to the config folder
+[2026-02-25T00:32:49.740Z] info: bookmarks.yaml was copied to the config folder
+[2026-02-25T00:32:49.748Z] info: widgets.yaml was copied to the config folder
+[2026-02-25T00:32:49.750Z] info: custom.css was copied to the config folder
+[2026-02-25T00:32:49.752Z] info: custom.js was copied to the config folder
+[2026-02-25T00:32:49.826Z] info: proxmox.yaml was copied to the config folder
+[2026-09-18T01:32:31.890Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.229Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.272Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.296Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.340Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.369Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.382Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.403Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.418Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.451Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.478Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:33.499Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:37.946Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:39.807Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:39.817Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:42.394Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:47.108Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:47.131Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:32:47.671Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:57.140Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:57.280Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:57.736Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.579Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.600Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.634Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.653Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.670Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.687Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.701Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.717Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.730Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.743Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.750Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:33:58.772Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.542Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.624Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.633Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.640Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.648Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.655Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.668Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.683Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.691Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.699Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.706Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.724Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:00.744Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:06.518Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:06.525Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:08.120Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:41.376Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:41.465Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:41.646Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.405Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.446Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.486Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.525Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.553Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.582Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.601Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.622Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.633Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.650Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.667Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:34:42.687Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:01.813Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:01.993Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.003Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.022Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.044Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.063Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.082Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.093Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.126Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.138Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.164Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.176Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:02.209Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:03.454Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:35:04.663Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:31.949Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:32.027Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:32.402Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:32.510Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.272Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.305Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.356Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.387Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.410Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.445Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.470Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.485Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.503Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.518Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.529Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:36:33.559Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:30.919Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:30.989Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:31.361Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:31.449Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.108Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.142Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.185Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.219Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.245Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.277Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.305Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.322Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.345Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.367Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.378Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:32.408Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:35.925Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:41.753Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:41.762Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:42.283Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:42.765Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-18T01:38:44.112Z] error: Host validation failed for: 100.95.142.72:3000. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.
+[2026-09-24T03:28:35.135Z] error: <httpProxy> Error calling https://api.github.com/repos/gethomepage/homepage/releases...
+[2026-09-24T03:28:35.171Z] error: <httpProxy> [
+  500,
+  [Error: getaddrinfo EAI_AGAIN api.github.com] {
+    errno: -3001,
+    code: 'EAI_AGAIN',
+    syscall: 'getaddrinfo',
+    hostname: 'api.github.com'
+  }
+]
+[2026-10-07T01:38:34.511Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:34.595Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:34.613Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:34.724Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:34.816Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:35.711Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:35.720Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:35.792Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:36.002Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:36.082Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.144Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.157Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.171Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.185Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.196Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.385Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.402Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.414Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.430Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.467Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.634Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.644Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:37.704Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.399Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.452Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.463Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.516Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.529Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.556Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.566Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.624Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.674Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.681Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.690Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.697Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:38:52.746Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:09.754Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:09.817Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:09.833Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:09.918Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:09.950Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:10.872Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:10.956Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:11.258Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:11.321Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.323Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.338Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.350Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.362Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.524Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.542Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.557Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.567Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.577Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.597Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.723Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.731Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:12.802Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.597Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.630Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.651Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.676Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.686Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.693Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.700Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.722Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.765Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.772Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.780Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.801Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:20.883Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.832Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.840Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.856Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.863Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.875Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.892Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.922Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.937Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.949Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:35.956Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:36.050Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:36.063Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T01:41:36.114Z] warn: <service-helpers> Error parsing service "GithubActions" from config. Ensure required fields are present.
+[2026-10-07T15:38:55.869Z] error: undefined
+[2026-10-07T15:38:55.883Z] error: undefined
+[2026-10-07T15:38:55.917Z] error: undefined
+[2026-10-07T15:38:55.927Z] error: undefined
+[2026-10-07T15:38:56.980Z] error: undefined
+[2026-10-07T15:38:56.985Z] error: undefined
+[2026-10-07T15:38:57.157Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:38:57.160Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-07T15:38:57.228Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:38:57.231Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-07T15:38:57.515Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:38:57.516Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-07T15:38:58.726Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:38:58.727Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-07T15:39:08.719Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:39:08.720Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-07T15:39:09.233Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:39:09.234Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-07T15:39:14.882Z] error: Failed to load services.yaml, please check for errors
+[2026-10-07T15:39:14.882Z] error: TypeError: Cannot read properties of null (reading 'forEach')
+[2026-10-08T04:21:48.306Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:48.334Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:48.346Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:48.487Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:48.650Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:48.715Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:49.520Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:49.536Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:49.918Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:49.938Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:50.992Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.003Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.015Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.030Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.041Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.249Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.260Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.270Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.278Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.292Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.452Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.484Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
+[2026-10-08T04:21:51.531Z] warn: <service-helpers> Error parsing service "Gmail" from config. Ensure required fields are present.
